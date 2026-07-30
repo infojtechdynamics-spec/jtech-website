@@ -1,0 +1,575 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" href="images/Favicon.png">
+<title>Contact J-Tech Dynamics | Precision Engineering</title>
+<script defer src="js/site-paths.js"></script>
+<script defer src="js/responsive-nav.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+        body {
+            background-color: #051424;
+            color: #d4e4fa;
+            font-family: 'Geist', sans-serif;
+        }
+        .circuit-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-surface": "#d4e4fa",
+                "primary-fixed": "#d9e3f8",
+                "on-primary-fixed": "#121c2b",
+                "on-tertiary": "#00354a",
+                "surface-dim": "#051424",
+                "surface-tint": "#bdc7dc",
+                "surface-container-low": "#0d1c2d",
+                "on-error": "#690005",
+                "inverse-primary": "#555f71",
+                "error-container": "#93000a",
+                "on-secondary-fixed-variant": "#003ea8",
+                "on-secondary-fixed": "#00174b",
+                "background": "#051424",
+                "on-surface-variant": "#c5c6cd",
+                "surface-container": "#122131",
+                "surface-variant": "#273647",
+                "tertiary-fixed-dim": "#7bd0ff",
+                "outline-variant": "#45474c",
+                "on-secondary": "#002a78",
+                "tertiary-fixed": "#c4e7ff",
+                "on-tertiary-fixed": "#001e2c",
+                "secondary-fixed-dim": "#b4c5ff",
+                "primary": "#bdc7dc",
+                "on-primary-container": "#737d90",
+                "primary-fixed-dim": "#bdc7dc",
+                "on-secondary-container": "#cdd7ff",
+                "inverse-on-surface": "#233143",
+                "on-background": "#d4e4fa",
+                "on-tertiary-fixed-variant": "#004c69",
+                "secondary": "#b4c5ff",
+                "on-primary": "#273141",
+                "surface-bright": "#2c3a4c",
+                "surface-container-highest": "#273647",
+                "error": "#ffb4ab",
+                "tertiary-container": "#00131d",
+                "inverse-surface": "#d4e4fa",
+                "secondary-fixed": "#dbe1ff",
+                "on-tertiary-container": "#0086b5",
+                "surface-container-high": "#1c2b3c",
+                "primary-container": "#071120",
+                "secondary-container": "#0053db",
+                "on-error-container": "#ffdad6",
+                "surface": "#051424",
+                "surface-container-lowest": "#010f1f",
+                "tertiary": "#7bd0ff",
+                "outline": "#8f9097",
+                "on-primary-fixed-variant": "#3e4758"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "spacing": {
+                "margin-mobile": "16px",
+                "container-max": "1440px",
+                "gutter": "24px",
+                "margin-desktop": "48px",
+                "unit": "4px"
+              },
+              "fontFamily": {
+                "headline-lg": ["Geist"],
+                "body-sm": ["Geist"],
+                "headline-lg-mobile": ["Geist"],
+                "headline-md": ["Geist"],
+                "display-lg": ["Geist"],
+                "body-lg": ["Geist"],
+                "body-md": ["Geist"],
+                "label-mono": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background selection:bg-tertiary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface-dim/70 backdrop-blur-2xl border-b border-white/5">
+<div class="flex items-center gap-3">
+<img alt="J-Tech Dynamics Logo" class="w-10 h-10 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">J-Tech Dynamics</span>
+</div>
+<div class="hidden lg:flex items-center gap-10"><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../1 home_page_final_with_active_nav_social_footer/code.html">Home</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../2 services_page_with_updated_nav/code.html">Services</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../3 industries_page_with_updated_nav/code.html">Industries</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../4 Products/code.html">Products</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../5 blog_page_with_updated_nav/code.html">Blog</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About</a></div>
+<button class="bg-on-surface text-background px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-tertiary transition-all active:scale-95" onclick="window.location.href='../contact_page_with_updated_nav/code.html'">
+        Request Support
+    </button>
+</nav>
+<main class="relative overflow-hidden pt-32 pb-24">
+<canvas class="circuit-background" id="circuitBackground" aria-hidden="true"></canvas>
+<div class="contact-content max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Hero Header -->
+<div class="mb-16 text-center md:text-left">
+<p class="font-label-mono text-label-mono text-tertiary uppercase tracking-[0.2em] mb-4">Transmission Interface</p>
+<h1 class="font-display-lg text-display-lg text-on-background mb-6">Get in Touch</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Tell us what you need and the right J-Tech specialist will get back to you. For urgent technical issues, call or message us directly.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Form Section (8 Columns) -->
+<div class="lg:col-span-7">
+<div class="glass-card rounded-xl p-8 md:p-12 shadow-2xl">
+<div class="flex flex-col gap-2 mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Send us a message</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Share a few details so we can route your enquiry to the right team.</p>
+</div>
+<form class="space-y-6" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase">Your Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:ring-1 focus:ring-tertiary transition-all" name="operatorName" placeholder="Full Name" required type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase">Email Address</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:ring-1 focus:ring-tertiary transition-all" name="email" placeholder="name@company.com" required type="email">
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase">How can we help?</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:ring-1 focus:ring-tertiary transition-all" name="classification">
+<option>Technical Support</option>
+<option>Strategic Partnership</option>
+<option>Sales Inquiry</option>
+<option>General Feedback</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase">Your Message</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:ring-1 focus:ring-tertiary transition-all" name="message" placeholder="Briefly describe your project, question, or support issue..." required rows="6"></textarea>
+</div>
+<button class="w-full md:w-auto bg-tertiary text-on-tertiary font-bold px-12 py-4 rounded-lg hover:scale-[1.02] active:scale-95 transition-all shadow-lg flex items-center justify-center gap-3" type="submit">
+<span class="">Send Message</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</div>
+<!-- Right: Information Sidebar (5 Columns) -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Emergency Support -->
+<div class="bg-error-container/20 border border-error/30 rounded-xl p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-error mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency</span>
+                            Emergency Support
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">For critical system failures only. Our emergency response line is available 24/7.</p>
+<a class="inline-flex items-center gap-2 text-error font-bold hover:underline" href="tel:+254117226872" aria-label="Call emergency support at +254 117 226 872">
+<span class="material-symbols-outlined">call</span>
+                             +254 117 226 872
+                        </a>
+</div>
+<!-- WhatsApp Integration -->
+<div class="glass-card glow-hover rounded-xl p-8 flex items-center justify-between transition-all">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Rapid Response</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Connect via WhatsApp for instant technical triage.</p>
+</div>
+<a class="h-14 w-14 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all" href="https://wa.me/254117226872?text=Hello%20J-Tech%20Dynamics%2C%20I%20need%20rapid%20technical%20support." target="_blank" rel="noopener">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;"><img src="../media_2.jpg/whatsapp2.png" alt=""></span>
+</a>
+</div>
+<div class="glass-card rounded-xl p-8">
+<div class="flex items-start gap-4">
+<div class="h-11 w-11 flex-shrink-0 bg-tertiary/15 rounded-lg flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Prefer email?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Send project details, partnership requests, or general questions directly to our team.</p>
+<a class="inline-flex items-center gap-2 text-tertiary font-bold hover:underline" href="mailto:info@jtechdynamics.com">info@jtechdynamics.com <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Global Support Metrics -->
+<div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<p class="font-display-lg text-display-lg text-primary mb-2">99.9%</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Uptime Reliability</p>
+</div>
+<div class="text-center border-l border-white/5">
+<p class="font-display-lg text-display-lg text-primary mb-2">15m</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Average Response</p>
+</div>
+<div class="text-center border-l border-white/5">
+<p class="font-display-lg text-display-lg text-primary mb-2">24/7</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">System Monitoring</p>
+</div>
+<div class="text-center border-l border-white/5">
+<p class="font-display-lg text-display-lg text-primary mb-2">KE</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Proudly Built in Kenya</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-16 bg-surface-dim border-t border-white/5">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<img alt="J-Tech Logo" class="w-8 h-8 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">J-Tech Dynamics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-xs">
+                    A technology company building the next generation of IT services, custom software, and SaaS solutions. Proudly built in Kisumu, Kenya.
+                </p>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Company</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../2 services_page_with_updated_nav/code.html">Expertise</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">Leadership</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Careers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Resources</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../5 blog_page_with_updated_nav/code.html">Case Studies</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Whitepapers</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Security Standards</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Support Portal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Connect</h5>
+<div class="grid gap-3 mb-8">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.facebook.com/share/1BJoCA4KYA/" aria-label="Facebook">
+<img alt="Facebook icon" class="w-6 h-6 object-contain" src="../media_2.jpg/facebook.png"/>
+<span class="font-body-sm text-body-sm">Facebook</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.instagram.com/jtech.d/" aria-label="Instagram">
+<img alt="Instagram icon" class="w-6 h-6 object-contain" src="../media_2.jpg/instagram.png"/>
+<span class="font-body-sm text-body-sm">Instagram</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.tiktok.com/@jtechdynamics" aria-label="TikTok">
+<img alt="TikTok icon" class="w-6 h-6 object-contain" src="../media_2.jpg/tiktok.png"/>
+<span class="font-body-sm text-body-sm">TikTok</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://x.com/jtech_dynamics" aria-label="X">
+<img alt="X icon" class="w-6 h-6 object-contain" src="../media_2.jpg/x-twitter.png"/>
+<span class="font-body-sm text-body-sm">X</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="http://www.youtube.com/@J-TechDynamics" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/youtube.png"/>
+<span class="font-body-sm text-body-sm">YouTube</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.linkedin.com/in/j-tech-dynamics-bb411a41b" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/LinkedIn.png"/>
+<span class="font-body-sm text-body-sm">LinkedIn</span>
+</a>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-surface-container-low">
+<p class="font-label-mono text-[10px] text-on-surface-variant mb-2">OPERATIONAL STATUS</p>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-[10px] text-on-surface uppercase tracking-tight">All Systems Operational</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant/60">
+                © 2026 J-Tech Dynamics. Innovation in Motion.
+            </p>
+
+</div>
+</div>
+</footer>
+<script>
+        // Submit the inquiry without opening the user's mail app.
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            const formData = new FormData(e.target);
+            const operatorName = formData.get('operatorName').trim();
+            const email = formData.get('email').trim();
+            const classification = formData.get('classification');
+            const message = formData.get('message').trim();
+            const subject = `J-Tech Dynamics Inquiry - ${classification}`;
+            const payload = {
+                name: operatorName,
+                email,
+                classification,
+                message,
+                subject
+            };
+            
+            btn.innerHTML = `
+                <span class="animate-spin material-symbols-outlined">sync</span>
+                <span>Transmitting...</span>
+            `;
+            btn.disabled = true;
+            btn.classList.add('opacity-70');
+
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Transmission failed');
+                }
+                return response.json();
+            })
+            .then(() => {
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Transmission Success</span>
+                `;
+                btn.classList.remove('bg-tertiary');
+                btn.classList.add('bg-green-600');
+                e.target.reset();
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-70', 'bg-green-600');
+                    btn.classList.add('bg-tertiary');
+                }, 3000);
+            })
+            .catch(() => {
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined">error</span>
+                    <span>Retry Transmission</span>
+                `;
+                btn.disabled = false;
+                btn.classList.remove('opacity-70');
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-green-600');
+                    btn.classList.add('bg-tertiary');
+                }, 3000);
+            });
+        });
+
+        // A rotating orbital network globe, inspired by the supplied reference image.
+        (() => {
+            const canvas = document.getElementById('circuitBackground');
+            const main = canvas.closest('main');
+            const context = canvas.getContext('2d');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const nodes = Array.from({ length: 76 }, (_, index) => {
+                const latitude = Math.asin(-1 + 2 * (index + 0.5) / 76);
+                return { latitude, longitude: index * 2.399963229728653 };
+            });
+            const connections = nodes.flatMap((_, index) => [
+                [index, (index + 1) % nodes.length],
+                [index, (index + 7) % nodes.length]
+            ]);
+            const stars = Array.from({ length: 105 }, (_, index) => ({
+                x: (index * 71 % 997) / 997,
+                y: (index * 179 % 991) / 991,
+                size: 0.5 + (index % 4) * 0.35,
+                phase: index * 0.37
+            }));
+            let width = 0;
+            let height = 0;
+            let globe = { x: 0, y: 0, radius: 0 };
+            let bursts = [];
+            let lastBurstAt = 0;
+
+            const resize = () => {
+                const bounds = main.getBoundingClientRect();
+                const scale = Math.min(window.devicePixelRatio || 1, 2);
+                width = bounds.width;
+                height = bounds.height;
+                canvas.width = Math.floor(width * scale);
+                canvas.height = Math.floor(height * scale);
+                context.setTransform(scale, 0, 0, scale, 0, 0);
+                globe = {
+                    x: width * 0.62,
+                    y: Math.min(height * 0.47, 560),
+                    radius: Math.min(width * 0.34, height * 0.29, 360)
+                };
+            };
+
+            const project = (node, rotation) => {
+                const longitude = node.longitude + rotation;
+                const cosLatitude = Math.cos(node.latitude);
+                return {
+                    x: globe.x + globe.radius * cosLatitude * Math.sin(longitude),
+                    y: globe.y + globe.radius * Math.sin(node.latitude),
+                    depth: cosLatitude * Math.cos(longitude)
+                };
+            };
+
+            const render = (time) => {
+                const rotation = prefersReducedMotion ? 0 : time * 0.00013;
+                context.clearRect(0, 0, width, height);
+
+                stars.forEach((star) => {
+                    const shimmer = 0.15 + (Math.sin(time * 0.0012 + star.phase) + 1) * 0.12;
+                    context.fillStyle = `rgba(180, 225, 255, ${shimmer})`;
+                    context.beginPath();
+                    context.arc(star.x * width, star.y * height, star.size, 0, Math.PI * 2);
+                    context.fill();
+                });
+
+                const atmosphere = context.createRadialGradient(globe.x, globe.y, globe.radius * 0.2, globe.x, globe.y, globe.radius * 1.3);
+                atmosphere.addColorStop(0, 'rgba(14, 77, 118, 0.12)');
+                atmosphere.addColorStop(0.7, 'rgba(24, 163, 220, 0.08)');
+                atmosphere.addColorStop(1, 'rgba(123, 208, 255, 0)');
+                context.fillStyle = atmosphere;
+                context.beginPath();
+                context.arc(globe.x, globe.y, globe.radius * 1.3, 0, Math.PI * 2);
+                context.fill();
+
+                context.save();
+                context.beginPath();
+                context.arc(globe.x, globe.y, globe.radius, 0, Math.PI * 2);
+                context.clip();
+                const projected = nodes.map((node) => project(node, rotation));
+                connections.forEach(([from, to]) => {
+                    const first = projected[from];
+                    const second = projected[to];
+                    const visibility = Math.max(0, (first.depth + second.depth + 1.3) / 2.6);
+                    context.beginPath();
+                    context.moveTo(first.x, first.y);
+                    context.lineTo(second.x, second.y);
+                    context.strokeStyle = `rgba(76, 198, 255, ${0.04 + visibility * 0.27})`;
+                    context.lineWidth = 0.65 + visibility * 0.55;
+                    context.stroke();
+                });
+                projected.forEach((point) => {
+                    if (point.depth < -0.18) return;
+                    const glow = 0.22 + Math.max(0, point.depth) * 0.7;
+                    context.save();
+                    context.shadowBlur = 12;
+                    context.shadowColor = 'rgba(76, 210, 255, 0.9)';
+                    context.fillStyle = `rgba(198, 242, 255, ${glow})`;
+                    context.beginPath();
+                    context.arc(point.x, point.y, 1.5 + glow, 0, Math.PI * 2);
+                    context.fill();
+                    context.restore();
+                });
+                context.restore();
+
+                // Rotating HUD-orbit rings around the globe.
+                context.save();
+                context.translate(globe.x, globe.y);
+                [0, Math.PI / 3, -Math.PI / 3].forEach((tilt, index) => {
+                    context.save();
+                    context.rotate(tilt + rotation * (index % 2 ? -0.45 : 0.35));
+                    context.beginPath();
+                    context.ellipse(0, 0, globe.radius * (1.12 + index * 0.07), globe.radius * (0.44 + index * 0.02), 0, 0, Math.PI * 2);
+                    context.strokeStyle = `rgba(123, 208, 255, ${0.16 - index * 0.025})`;
+                    context.lineWidth = 1;
+                    context.stroke();
+                    context.restore();
+                });
+                context.restore();
+
+                context.save();
+                context.shadowBlur = 20;
+                context.shadowColor = 'rgba(123, 208, 255, 0.75)';
+                context.strokeStyle = 'rgba(166, 229, 255, 0.48)';
+                context.lineWidth = 1.4;
+                context.beginPath();
+                context.arc(globe.x, globe.y, globe.radius, 0, Math.PI * 2);
+                context.stroke();
+                context.restore();
+
+                bursts = bursts.filter((burst) => time - burst.startedAt < 1150);
+                bursts.forEach((burst) => {
+                    const progress = (time - burst.startedAt) / 1150;
+                    const radius = 10 + progress * 110;
+                    context.beginPath();
+                    context.arc(burst.x, burst.y, radius, 0, Math.PI * 2);
+                    context.strokeStyle = `rgba(123, 208, 255, ${(1 - progress) * 0.38})`;
+                    context.lineWidth = 1.2;
+                    context.stroke();
+                });
+
+                if (!prefersReducedMotion) requestAnimationFrame(render);
+            };
+
+            main.addEventListener('pointermove', (event) => {
+                const bounds = main.getBoundingClientRect();
+                const now = performance.now();
+                if (now - lastBurstAt > 450) {
+                    bursts.push({ x: event.clientX - bounds.left, y: event.clientY - bounds.top, startedAt: now });
+                    lastBurstAt = now;
+                }
+            });
+            window.addEventListener('resize', resize);
+            resize();
+            render(performance.now());
+        })();
+    </script>
+
+
+<script src="../responsive-nav.js"></script>
+</body></html>

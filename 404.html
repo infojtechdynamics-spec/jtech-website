@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" href="images/Favicon.png"/>
+<title>J-Tech Dynamics | Innovation in Motion</title>
+<script defer src="js/site-paths.js"></script>
+<script defer src="js/responsive-nav.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #051424;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        }
+        .animated-bg {
+            background: radial-gradient(circle at 50% 50%, #0d1c2d 0%, #051424 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+        }
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+        @keyframes pulse-cyan {
+            0%, 100% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.1); }
+            50% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.3); }
+        }
+        .active-glow {
+            animation: pulse-cyan 4s infinite ease-in-out;
+        }
+        .robot-build-scene {
+            display: none;
+            position: relative;
+            aspect-ratio: 16 / 10;
+            background:
+                radial-gradient(circle at 50% 28%, rgba(56, 189, 248, 0.18), transparent 38%),
+                linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(3, 12, 22, 0.96));
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), inset 0 0 44px rgba(56, 189, 248, 0.08);
+        }
+        .robot-build-scene::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+            background-size: 34px 34px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 72%);
+        }
+        .robot-build-scene svg {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        main > section > .flex > h2 {
+            display: none;
+        }
+        .robot-build-scene::after {
+            content: "J-TECH  /  BUILD STATUS\A\A01  TALENT HUB        [ IN PROGRESS ]\A02  SUPPORT PORTAL    [ IN PROGRESS ]\A03  CASE STUDIES      [ IN PROGRESS ]\A\ACORE SYSTEMS ONLINE";
+            white-space: pre-line;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #d4e4fa;
+            font-family: "JetBrains Mono", monospace;
+            font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+            line-height: 1.9;
+            letter-spacing: 0.08em;
+            text-align: left;
+            text-shadow: 0 0 18px rgba(56, 189, 248, 0.32);
+        }
+        .robot-build-scene .left-bot {
+            animation: left-bot-build 6s ease-in-out infinite;
+            transform-origin: 148px 214px;
+        }
+        .robot-build-scene .right-bot {
+            animation: right-bot-build 6s ease-in-out infinite;
+            transform-origin: 492px 214px;
+        }
+        .robot-build-scene .left-arm {
+            animation: left-arm-work 1.8s ease-in-out infinite;
+            transform-origin: 164px 168px;
+        }
+        .robot-build-scene .right-arm {
+            animation: right-arm-work 1.8s ease-in-out infinite;
+            transform-origin: 476px 168px;
+        }
+        .robot-build-scene .module-block {
+            animation: module-rise 6s ease-in-out infinite;
+            transform-origin: 320px 210px;
+        }
+        .robot-build-scene .module-light {
+            animation: blink-light 1.2s steps(2, end) infinite;
+        }
+        .robot-build-scene .crane {
+            animation: crane-slide 6s ease-in-out infinite;
+        }
+        .robot-build-scene .cable {
+            animation: cable-lift 6s ease-in-out infinite;
+            transform-origin: 320px 60px;
+        }
+        .robot-build-scene .spark {
+            animation: spark-pop 900ms ease-out infinite;
+            transform-origin: center;
+        }
+        .robot-build-scene .spark:nth-of-type(2) { animation-delay: 150ms; }
+        .robot-build-scene .spark:nth-of-type(3) { animation-delay: 300ms; }
+        .robot-build-scene .spark:nth-of-type(4) { animation-delay: 450ms; }
+        .robot-build-scene .conveyor-dash {
+            animation: conveyor-move 1s linear infinite;
+        }
+        @keyframes left-bot-build {
+            0%, 100% { transform: translateX(-10px); }
+            45%, 60% { transform: translateX(18px); }
+        }
+        @keyframes right-bot-build {
+            0%, 100% { transform: translateX(12px); }
+            45%, 60% { transform: translateX(-18px); }
+        }
+        @keyframes left-arm-work {
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(18deg); }
+        }
+        @keyframes right-arm-work {
+            0%, 100% { transform: rotate(9deg); }
+            50% { transform: rotate(-18deg); }
+        }
+        @keyframes module-rise {
+            0%, 18% { transform: translateY(24px) scale(0.92); opacity: 0.35; }
+            42%, 78% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(8px) scale(0.98); opacity: 0.7; }
+        }
+        @keyframes blink-light {
+            0%, 44%, 100% { opacity: 0.35; }
+            45%, 70% { opacity: 1; }
+        }
+        @keyframes crane-slide {
+            0%, 100% { transform: translateX(-62px); }
+            45%, 68% { transform: translateX(0); }
+        }
+        @keyframes cable-lift {
+            0%, 20% { transform: scaleY(1.28); }
+            45%, 75% { transform: scaleY(0.82); }
+            100% { transform: scaleY(1.08); }
+        }
+        @keyframes spark-pop {
+            0% { transform: scale(0); opacity: 0; }
+            35% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+        @keyframes conveyor-move {
+            from { transform: translateX(0); }
+            to { transform: translateX(34px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .robot-build-scene * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+        .error-recovery {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 8rem 1rem 3rem;
+        }
+        .error-recovery__panel {
+            width: min(100%, 60rem);
+            text-align: center;
+            padding: clamp(1.5rem, 5vw, 4rem);
+            border: 1px solid rgba(123, 208, 255, 0.2);
+            border-radius: 1.25rem;
+            background: linear-gradient(145deg, rgba(18, 33, 49, 0.88), rgba(5, 20, 36, 0.9));
+            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.08);
+        }
+        .error-recovery__code { font: 700 clamp(5rem, 19vw, 11rem)/0.8 Geist, sans-serif; letter-spacing: -0.09em; color: transparent; -webkit-text-stroke: 1px rgba(123, 208, 255, 0.68); text-shadow: 0 0 2.8rem rgba(56, 189, 248, 0.25); }
+        .error-recovery__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: 2rem; text-align: left; }
+        .error-recovery__links a { padding: 1rem; border: 1px solid rgba(255,255,255,.1); border-radius: .75rem; color: #d4e4fa; text-decoration: none; background: rgba(255,255,255,.035); transition: border-color .2s, background .2s, transform .2s; }
+        .error-recovery__links a:hover { border-color: #7bd0ff; background: rgba(123,208,255,.1); transform: translateY(-2px); }
+        @media (max-width: 640px) { .error-recovery__links { grid-template-columns: 1fr; } }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#d4e4fa",
+                    "primary-fixed": "#d9e3f8",
+                    "on-primary-fixed": "#121c2b",
+                    "on-tertiary": "#00354a",
+                    "surface-dim": "#051424",
+                    "surface-tint": "#bdc7dc",
+                    "surface-container-low": "#0d1c2d",
+                    "on-error": "#690005",
+                    "inverse-primary": "#555f71",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#003ea8",
+                    "on-secondary-fixed": "#00174b",
+                    "background": "#051424",
+                    "on-surface-variant": "#c5c6cd",
+                    "surface-container": "#122131",
+                    "surface-variant": "#273647",
+                    "tertiary-fixed-dim": "#7bd0ff",
+                    "outline-variant": "#45474c",
+                    "on-secondary": "#002a78",
+                    "tertiary-fixed": "#c4e7ff",
+                    "on-tertiary-fixed": "#001e2c",
+                    "secondary-fixed-dim": "#b4c5ff",
+                    "primary": "#bdc7dc",
+                    "on-primary-container": "#737d90",
+                    "primary-fixed-dim": "#bdc7dc",
+                    "on-secondary-container": "#cdd7ff",
+                    "inverse-on-surface": "#233143",
+                    "on-background": "#d4e4fa",
+                    "on-tertiary-fixed-variant": "#004c69",
+                    "secondary": "#b4c5ff",
+                    "on-primary": "#273141",
+                    "surface-bright": "#2c3a4c",
+                    "surface-container-highest": "#273647",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#00131d",
+                    "inverse-surface": "#d4e4fa",
+                    "secondary-fixed": "#dbe1ff",
+                    "on-tertiary-container": "#0086b5",
+                    "surface-container-high": "#1c2b3c",
+                    "primary-container": "#071120",
+                    "secondary-container": "#0053db",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#051424",
+                    "surface-container-lowest": "#010f1f",
+                    "tertiary": "#7bd0ff",
+                    "outline": "#8f9097",
+                    "on-primary-fixed-variant": "#3e4758"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-md": ["Geist"],
+                    "label-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="text-on-surface font-body-md selection:bg-tertiary selection:text-on-tertiary">
+<div class="animated-bg"></div>
+<div class="grid-overlay"></div>
+<div class="glow-orb" id="orb-1" style="top: 10%; left: 15%;"></div>
+<div class="glow-orb" id="orb-2" style="bottom: 10%; right: 15%;"></div>
+<!-- Navigation Shell -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface-dim/70 backdrop-blur-2xl border-b border-white/5">
+<div class="flex items-center gap-3">
+<img alt="J-Tech Dynamics Logo" class="w-10 h-10 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">J-Tech Dynamics</span>
+</div>
+<div class="hidden lg:flex items-center gap-10"><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../1 home_page_final_with_active_nav_social_footer/code.html">Home</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../2 services_page_with_updated_nav/code.html">Services</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../3 industries_page_with_updated_nav/code.html">Industries</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../4 Products/code.html">Products</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../5 blog_page_with_updated_nav/code.html">Blog</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About</a></div>
+<button class="bg-on-surface text-background px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-tertiary transition-all active:scale-95" onclick="window.location.href='../contact_page_with_updated_nav/code.html'">
+        Request Support
+    </button>
+</nav>
+<!-- Hero Title -->
+<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<section class="space-y-4 text-center max-w-4xl mx-auto mb-16">
+<div class="flex flex-col items-center justify-center mb-8"><h2 class="font-display-lg text-8xl md:text-9xl text-white/20 tracking-tighter mb-4">404</h2><div class="w-full max-w-md mx-auto border border-white/5 robot-build-scene" aria-label="Animated robots building a J-Tech module" role="img"><svg viewBox="0 0 640 400" aria-hidden="true"><defs><linearGradient id="steel" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4e4fa" stop-opacity="0.88"></stop><stop offset="1" stop-color="#5c6f86" stop-opacity="0.95"></stop></linearGradient><linearGradient id="cyan-core" x1="0" x2="1"><stop stop-color="#38bdf8"></stop><stop offset="1" stop-color="#2dd4bf"></stop></linearGradient><filter id="soft-glow"><feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><g opacity="0.65"><path d="M84 88h472M52 142h536M92 302h456" stroke="#38bdf8" stroke-opacity="0.18"></path><circle cx="116" cy="88" r="3" fill="#38bdf8"></circle><circle cx="524" cy="142" r="3" fill="#2dd4bf"></circle><circle cx="226" cy="302" r="3" fill="#38bdf8"></circle></g><g class="crane"><rect x="214" y="48" width="212" height="16" rx="8" fill="#172236" stroke="#38bdf8" stroke-opacity="0.35"></rect><rect x="300" y="38" width="40" height="36" rx="10" fill="url(#steel)"></rect><rect class="cable" x="316" y="70" width="8" height="76" rx="4" fill="#38bdf8" opacity="0.55"></rect><path d="M292 146h56l-12 18h-32z" fill="#2dd4bf" filter="url(#soft-glow)"></path></g><g class="module-block"><rect x="247" y="170" width="146" height="90" rx="12" fill="#101b2e" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="2"></rect><rect x="268" y="190" width="36" height="28" rx="5" fill="url(#cyan-core)" opacity="0.88"></rect><rect x="316" y="190" width="56" height="10" rx="5" fill="#d4e4fa" opacity="0.6"></rect><rect x="316" y="212" width="42" height="10" rx="5" fill="#d4e4fa" opacity="0.35"></rect><circle class="module-light" cx="366" cy="235" r="8" fill="#2dd4bf" filter="url(#soft-glow)"></circle><path d="M260 260h120" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="3"></path></g><g transform="translate(0 18)"><rect x="108" y="280" width="424" height="24" rx="12" fill="#0d1c2d" stroke="#38bdf8" stroke-opacity="0.25"></rect><g class="conveyor-dash" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.45"><path d="M116 292h22M158 292h22M200 292h22M242 292h22M284 292h22M326 292h22M368 292h22M410 292h22M452 292h22M494 292h22"></path></g></g><g class="left-bot"><rect x="116" y="174" width="64" height="72" rx="18" fill="#14243a" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="2"></rect><rect x="126" y="144" width="44" height="34" rx="12" fill="url(#steel)"></rect><circle cx="138" cy="160" r="4" fill="#051424"></circle><circle cx="158" cy="160" r="4" fill="#051424"></circle><path d="M132 194h32" stroke="#2dd4bf" stroke-width="5" stroke-linecap="round"></path><g class="left-arm"><path d="M174 188c20 6 35 17 49 35" fill="none" stroke="url(#steel)" stroke-width="13" stroke-linecap="round"></path><circle cx="226" cy="226" r="9" fill="#38bdf8" filter="url(#soft-glow)"></circle></g><path d="M132 246v28M164 246v28" stroke="#d4e4fa" stroke-opacity="0.7" stroke-width="12" stroke-linecap="round"></path><path d="M118 276h28M154 276h28" stroke="#38bdf8" stroke-width="9" stroke-linecap="round"></path></g><g class="right-bot"><rect x="460" y="174" width="64" height="72" rx="18" fill="#14243a" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="2"></rect><rect x="470" y="144" width="44" height="34" rx="12" fill="url(#steel)"></rect><circle cx="482" cy="160" r="4" fill="#051424"></circle><circle cx="502" cy="160" r="4" fill="#051424"></circle><path d="M476 194h32" stroke="#2dd4bf" stroke-width="5" stroke-linecap="round"></path><g class="right-arm"><path d="M466 188c-20 6-35 17-49 35" fill="none" stroke="url(#steel)" stroke-width="13" stroke-linecap="round"></path><circle cx="414" cy="226" r="9" fill="#38bdf8" filter="url(#soft-glow)"></circle></g><path d="M476 246v28M508 246v28" stroke="#d4e4fa" stroke-opacity="0.7" stroke-width="12" stroke-linecap="round"></path><path d="M462 276h28M498 276h28" stroke="#38bdf8" stroke-width="9" stroke-linecap="round"></path></g><g filter="url(#soft-glow)" fill="#2dd4bf"><circle class="spark" cx="238" cy="224" r="3"></circle><circle class="spark" cx="402" cy="224" r="3"></circle><circle class="spark" cx="318" cy="164" r="3"></circle><circle class="spark" cx="366" cy="236" r="3"></circle></g></svg></div></div><div class="inline-flex items-center gap-2 px-3 py-1 glass-card border-tertiary/30 rounded-full text-tertiary font-label-mono text-label-mono uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                    System Evolution in Progress
+                </div>
+<h1 class="font-display-lg text-display-lg md:text-6xl text-white tracking-tight leading-tight">
+                    Building what comes <br/><span class="text-tertiary">next.</span>
+</h1>
+<p class="max-w-2xl mx-auto text-on-surface-variant font-body-lg text-body-lg">
+                    New J-Tech experiences and products are taking shape. Follow our progress as we prepare a talent hub, support portal, client-outcome library, and Dynamic Pay.
+                </p>
+</section>
+<!-- Bento Preview Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-12" aria-label="Upcoming J-Tech experiences">
+<!-- Careers -->
+<div class="glass-card p-8 group hover:border-tertiary/50 hover:-translate-y-1 transition-all duration-500">
+<p class="text-tertiary font-label-mono text-label-mono mb-6">01 / TALENT</p>
+<div class="mb-6 w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary border border-tertiary/20">
+<span class="material-symbols-outlined">group</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Careers</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4">Join a team of visionaries engineering the future of motion and precision. Our global talent hub will be available soon.</p>
+<div class="text-tertiary font-label-mono text-label-mono uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
+                        Status: Deploying
+                    </div>
+</div>
+<!-- Support Portal -->
+<div class="glass-card p-8 group hover:border-tertiary/50 hover:-translate-y-1 transition-all duration-500">
+<p class="text-tertiary font-label-mono text-label-mono mb-6">02 / SUPPORT</p>
+<div class="mb-6 w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary border border-tertiary/20">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Support Portal</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4">A unified assistance engine designed for rapid resolution and technical precision. Self-service tools and 24/7 ticketing.</p>
+<div class="text-tertiary font-label-mono text-label-mono uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
+                        Status: Compiling
+                    </div>
+</div>
+<!-- Case Studies -->
+<div class="glass-card p-8 group hover:border-tertiary/50 hover:-translate-y-1 transition-all duration-500">
+<p class="text-tertiary font-label-mono text-label-mono mb-6">03 / INSIGHTS</p>
+<div class="mb-6 w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary border border-tertiary/20">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Case Studies</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4">Deep dives into how J-Tech Dynamics transforms complex challenges into elegant industrial solutions. Performance data archives.</p>
+<div class="text-tertiary font-label-mono text-label-mono uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
+                        Status: Archiving
+                    </div>
+</div>
+</section>
+<!-- Products in Development -->
+<section class="mb-12" aria-labelledby="products-in-development-title">
+<div class="text-center mb-6">
+<p class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest mb-3">Products in development</p>
+<h2 id="products-in-development-title" class="font-headline-md text-headline-md text-white">Built for what’s next</h2>
+</div>
+<a class="glass-card block max-w-2xl mx-auto p-8 group hover:border-tertiary/50 hover:-translate-y-1 transition-all duration-500" href="../4 Products/dynamic-pay.html" aria-label="Learn about Dynamic Pay, currently in development">
+<div class="flex flex-col sm:flex-row gap-6 sm:items-center text-left">
+<div class="w-14 h-14 flex shrink-0 items-center justify-center bg-primary-container text-tertiary border border-tertiary/20">
+<span class="material-symbols-outlined"><img src="../media_2.jpg/Dynamic Pay.png"></span>
+</div>
+<div class="flex-grow">
+<div class="flex flex-wrap items-center gap-3 mb-2"><span class="text-tertiary font-label-mono text-label-mono">01 / FINTECH</span><span class="px-3 py-1 border border-tertiary/30 rounded-full text-tertiary font-label-mono text-[10px] uppercase tracking-widest">In development</span></div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Dynamic Pay</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">A secure digital transaction assurance platform for controlled fund holding, verification, settlement, and dispute workflows.</p>
+</div>
+<span class="material-symbols-outlined text-tertiary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</a>
+</section>
+<!-- Newsletter Signup -->
+<section class="glass-card p-8 md:p-12 max-w-2xl mx-auto border-tertiary/20 active-glow text-center">
+<p class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest mb-3">Stay in the loop</p>
+<h4 class="font-headline-md text-headline-md text-white mb-4">Get updates on product progress</h4>
+<p class="text-on-surface-variant font-body-md text-body-md mb-3">Receive technical bulletins, Dynamic Pay progress updates, and early-access notifications as new J-Tech experiences go live.</p>
+<p class="text-tertiary font-label-mono text-label-mono uppercase tracking-widest mb-8">Status: Work in progress</p>
+<form id="newsletter-form" class="flex flex-col md:flex-row gap-4" novalidate>
+<input id="newsletter-email" class="flex-grow bg-surface-container-lowest border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary outline-none px-4 py-3 font-label-mono text-on-surface placeholder:text-outline-variant transition-all" placeholder="ENTER SYSTEM EMAIL" type="email" autocomplete="email" required aria-describedby="newsletter-status"/>
+<button id="newsletter-submit" class="bg-primary text-on-primary px-8 py-3 font-body-md font-bold hover:bg-tertiary hover:text-on-tertiary transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70" type="submit">
+                        NOTIFY ME
+                    </button>
+</form>
+<p id="newsletter-status" class="min-h-5 mt-3 text-sm text-on-surface-variant" role="status" aria-live="polite"></p>
+</section>
+</main>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-16 bg-surface-dim border-t border-white/5">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<img alt="J-Tech Logo" class="w-8 h-8 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">J-Tech Dynamics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-xs">
+                    A technology company building the next generation of IT services, custom software, and SaaS solutions. Proudly built in Kisumu, Kenya.
+                </p>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Company</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../2 services_page_with_updated_nav/code.html">Expertise</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">Leadership</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Careers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Resources</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../5 blog_page_with_updated_nav/code.html">Case Studies</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Whitepapers</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Security Standards</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Support Portal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Connect</h5>
+<div class="grid gap-3 mb-8">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.facebook.com/share/1BJoCA4KYA/" aria-label="Facebook">
+<img alt="Facebook icon" class="w-6 h-6 object-contain" src="../media_2.jpg/facebook.png"/>
+<span class="font-body-sm text-body-sm">Facebook</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.instagram.com/jtech.d/" aria-label="Instagram">
+<img alt="Instagram icon" class="w-6 h-6 object-contain" src="../media_2.jpg/instagram.png"/>
+<span class="font-body-sm text-body-sm">Instagram</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.tiktok.com/@jtechdynamics" aria-label="TikTok">
+<img alt="TikTok icon" class="w-6 h-6 object-contain" src="../media_2.jpg/tiktok.png"/>
+<span class="font-body-sm text-body-sm">TikTok</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://x.com/jtech_dynamics" aria-label="X">
+<img alt="X icon" class="w-6 h-6 object-contain" src="../media_2.jpg/x-twitter.png"/>
+<span class="font-body-sm text-body-sm">X</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="http://www.youtube.com/@J-TechDynamics" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/youtube.png"/>
+<span class="font-body-sm text-body-sm">YouTube</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.linkedin.com/in/j-tech-dynamics-bb411a41b" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/LinkedIn.png"/>
+<span class="font-body-sm text-body-sm">LinkedIn</span>
+</a>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-surface-container-low">
+<p class="font-label-mono text-[10px] text-on-surface-variant mb-2">OPERATIONAL STATUS</p>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-[10px] text-on-surface uppercase tracking-tight">All Systems Operational</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant/60">
+                © 2026 J-Tech Dynamics. Innovation in Motion.
+            </p>
+
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions: Mouse following glowing orbs
+        document.addEventListener('mousemove', (e) => {
+            const orb1 = document.getElementById('orb-1');
+            const orb2 = document.getElementById('orb-2');
+            
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
+            
+            orb1.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            orb2.style.transform = `translate(${-moveX}px, ${-moveY}px)`;
+        });
+
+        // Newsletter subscription
+        document.querySelector('#newsletter-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.currentTarget;
+            const input = form.querySelector('#newsletter-email');
+            const btn = form.querySelector('#newsletter-submit');
+            const status = document.querySelector('#newsletter-status');
+            const originalText = 'NOTIFY ME';
+            const email = input.value.trim();
+
+            if (!input.checkValidity()) {
+                status.textContent = 'Please enter a valid email address.';
+                input.focus();
+                return;
+            }
+
+            btn.textContent = 'SAVING...';
+            btn.disabled = true;
+            status.textContent = '';
+
+            try {
+                const response = await fetch('/api/newsletter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'Unable to save your email.');
+
+                btn.textContent = 'SUCCESSFUL';
+                btn.classList.add('bg-tertiary', 'text-on-tertiary');
+                status.textContent = result.message || 'You are on the notification list.';
+                form.reset();
+
+                window.setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('bg-tertiary', 'text-on-tertiary');
+                    status.textContent = '';
+                }, 5000);
+            } catch (error) {
+                btn.textContent = originalText;
+                btn.disabled = false;
+                status.textContent = error.message || 'Unable to save your email. Please try again.';
+            }
+        });
+    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.title = 'Page Not Found | J-Tech Dynamics';
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+
+        const recovery = document.createElement('main');
+        recovery.className = 'error-recovery';
+        recovery.innerHTML = `
+            <section class="error-recovery__panel" aria-labelledby="error-title">
+                <p class="font-label-mono text-label-mono text-tertiary uppercase tracking-[.22em] mb-6">Signal lost · Error 404</p>
+                <div class="error-recovery__code" aria-hidden="true">404</div>
+                <h1 id="error-title" class="font-display-lg text-display-lg md:text-6xl text-white mt-8">This route does not exist.</h1>
+                <p class="max-w-xl mx-auto mt-5 text-on-surface-variant font-body-lg text-body-lg">The page may have moved, been renamed, or never made it into this deployment. Let’s get you back to a working part of J-Tech Dynamics.</p>
+                <div class="mt-9 flex flex-col sm:flex-row justify-center gap-3">
+                    <a class="bg-tertiary text-on-tertiary px-6 py-3 rounded-full font-label-mono text-label-mono hover:brightness-110 transition-all" href="../1 home_page_final_with_active_nav_social_footer/code.html">Return home</a>
+                    <button class="border border-white/20 text-on-surface px-6 py-3 rounded-full font-label-mono text-label-mono hover:bg-white/10 transition-all" type="button" data-go-back>Go back</button>
+                </div>
+                <div class="error-recovery__links">
+                    <a href="../2 services_page_with_updated_nav/code.html"><span class="block text-tertiary font-label-mono text-label-mono uppercase mb-2">01 / Services</span>Explore our technical capabilities</a>
+                    <a href="../4 Products/code.html"><span class="block text-tertiary font-label-mono text-label-mono uppercase mb-2">02 / Products</span>See what we are building</a>
+                    <a href="../contact_page_with_updated_nav/code.html"><span class="block text-tertiary font-label-mono text-label-mono uppercase mb-2">03 / Contact</span>Talk to the J-Tech team</a>
+                </div>
+            </section>`;
+        nav.insertAdjacentElement('afterend', recovery);
+        recovery.querySelector('[data-go-back]').addEventListener('click', () => {
+            if (window.history.length > 1) window.history.back();
+            else window.location.href = '../1 home_page_final_with_active_nav_social_footer/code.html';
+        });
+    });
+</script>
+<script src="../responsive-nav.js"></script>
+</body></html>

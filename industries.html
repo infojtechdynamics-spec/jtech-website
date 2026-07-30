@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" href="images/Favicon.png"/>
+<title>Industries | J-Tech Dynamics</title>
+<script defer src="js/site-paths.js"></script>
+<script defer src="js/responsive-nav.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#d4e4fa",
+                      "primary-fixed": "#d9e3f8",
+                      "on-primary-fixed": "#121c2b",
+                      "on-tertiary": "#00354a",
+                      "surface-dim": "#051424",
+                      "surface-tint": "#bdc7dc",
+                      "surface-container-low": "#0d1c2d",
+                      "on-error": "#690005",
+                      "inverse-primary": "#555f71",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#003ea8",
+                      "on-secondary-fixed": "#00174b",
+                      "background": "#051424",
+                      "on-surface-variant": "#c5c6cd",
+                      "surface-container": "#122131",
+                      "surface-variant": "#273647",
+                      "tertiary-fixed-dim": "#7bd0ff",
+                      "outline-variant": "#45474c",
+                      "on-secondary": "#002a78",
+                      "tertiary-fixed": "#c4e7ff",
+                      "on-tertiary-fixed": "#001e2c",
+                      "secondary-fixed-dim": "#b4c5ff",
+                      "primary": "#bdc7dc",
+                      "on-primary-container": "#737d90",
+                      "primary-fixed-dim": "#bdc7dc",
+                      "on-secondary-container": "#cdd7ff",
+                      "inverse-on-surface": "#233143",
+                      "on-background": "#d4e4fa",
+                      "on-tertiary-fixed-variant": "#004c69",
+                      "secondary": "#b4c5ff",
+                      "on-primary": "#273141",
+                      "surface-bright": "#2c3a4c",
+                      "surface-container-highest": "#273647",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#00131d",
+                      "inverse-surface": "#d4e4fa",
+                      "secondary-fixed": "#dbe1ff",
+                      "on-tertiary-container": "#0086b5",
+                      "surface-container-high": "#1c2b3c",
+                      "primary-container": "#071120",
+                      "secondary-container": "#0053db",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#051424",
+                      "surface-container-lowest": "#010f1f",
+                      "tertiary": "#7bd0ff",
+                      "outline": "#8f9097",
+                      "on-primary-fixed-variant": "#3e4758"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "container-max": "1440px",
+                      "gutter": "24px",
+                      "margin-desktop": "48px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "headline-lg-mobile": ["Geist"],
+                      "headline-md": ["Geist"],
+                      "display-lg": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "body-md": ["Geist"],
+                      "label-mono": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                      "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #051424;
+            color: #d4e4fa;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+            transform: translateY(-4px);
+        }
+        .interactive-grid {
+            background-image: radial-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glow-button {
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-button:hover {
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface-dim/70 backdrop-blur-2xl border-b border-white/5">
+<div class="flex items-center gap-3">
+<img alt="J-Tech Dynamics Logo" class="w-10 h-10 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">J-Tech Dynamics</span>
+</div>
+<div class="hidden lg:flex items-center gap-10"><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../1 home_page_final_with_active_nav_social_footer/code.html">Home</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../2 services_page_with_updated_nav/code.html">Services</a><a class="font-body-md text-body-md text-tertiary transition-colors" href="#">Industries</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../4 Products/code.html">Products</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../5 blog_page_with_updated_nav/code.html">Blog</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About</a></div>
+<button class="bg-on-surface text-background px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-tertiary transition-all active:scale-95" onclick="window.location.href='../contact_page_with_updated_nav/code.html'">
+        Request Support
+    </button>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-40 pb-24 px-margin-desktop overflow-hidden interactive-grid">
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="flex flex-col gap-6 max-w-3xl">
+<span class="font-label-mono text-label-mono text-tertiary flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                    INDUSTRY SOLUTIONS
+                </span>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter">
+                    Technology Built <br/> Around <span class="text-tertiary">Your Industry.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Every organization relies on technology but every industry has different priorities. J-Tech Dynamics delivers tailored IT solutions that address the unique challenges of your sector, helping you improve efficiency, strengthen security, reduce operational risks, and accelerate digital transformation. Whether you're in hospitality, healthcare, education, government, finance, or enterprise, we provide the technology foundation your business needs to thrive
+                </p>
+</div>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -right-20 top-20 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[120px] pointer-events-none"></div>
+</header>
+<!-- Industry Grid Section -->
+<main class="py-24 px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- SME Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">SMEs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Technology solutions that help growing businesses operate securely and efficiently.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Reliable IT support, network infrastructure, cloud services, cybersecurity, and business continuity solutions tailored for small and medium-sized businesses.</p>
+</div>
+</div>
+<!-- Hotels Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hotel</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Hotels</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Elevating guest experiences through digital precision.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Reliable IT infrastructure, Wi-Fi systems, PMS support, and cybersecurity solutions that keep hotel operations running smoothly.</p>
+</div>
+</div>
+<!-- Hospitals Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Hospitals</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Life-critical data systems designed for zero downtime.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Secure networks, backup solutions, access control, and IT support for healthcare facilities.</p>
+</div>
+</div>
+<!-- Schools Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Schools</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Next-generation learning management and administration.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Network infrastructure, computer lab support, cloud services, and secure connectivity for modern learning environments.</p>
+</div>
+</div>
+<!-- NGOs Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">NGOs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Transparent impact tracking for global change agents.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Donor management platforms and transparent project reporting with data visualization.</p>
+</div>
+</div>
+<!-- SACCOs Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">SACCOs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-fidelity core banking for cooperative financial societies.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Secure IT infrastructure, backup systems, cybersecurity, and technology support for financial operations.</p>
+</div>
+</div>
+<!-- Enterprises Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Enterprises</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unifying complex global operations into single-pane glass.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Managed IT services, cloud solutions, cybersecurity, infrastructure monitoring, and business continuity support.</p>
+</div>
+</div>
+<!-- Government Card -->
+<div class="glass-card p-8 flex flex-col gap-6 group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-tertiary rounded-lg border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Government</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sovereign-grade digital infrastructure for public service.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-white/5">
+<span class="font-label-mono text-label-mono text-tertiary">HOW WE HELP</span>
+<p class="font-body-sm text-body-sm mt-2">Network infrastructure, cybersecurity, systems support, and digital transformation services for public institutions.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Case Study Preview (Asymmetric Layout) -->
+<section class="py-24 px-margin-desktop bg-surface relative">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 space-y-8">
+<span class="font-label-mono text-label-mono text-secondary px-3 py-1 bg-secondary-container/20 rounded-full border border-secondary/20">SUCCESS STORY</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Building Intelligent Infrastructure.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">How J-Tech Dynamics deployed a centralized Network Operations Center for Hotel X and Office Y, enabling real-time infrastructure visibility and proactive support.</p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 font-label-mono text-label-mono uppercase tracking-widest glow-button" data-open-noc-story type="button">Read Case Study</button>
+<a class="border border-white/10 text-primary px-8 py-3 font-label-mono text-label-mono uppercase tracking-widest hover:bg-white/5 transition-colors inline-flex items-center" href="../5 blog_page_with_updated_nav/code.html#jtech-stories-heading">All Stories</a>
+</div>
+</div>
+<div class="lg:col-span-7 relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-tertiary/20 to-secondary/20 rounded-xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+<div class="relative rounded-xl overflow-hidden border border-white/10 aspect-video">
+<img class="w-full h-full object-cover" data-alt="A futuristic wide shot of a high-tech server room with glowing blue neon lights on black cabinets. The atmosphere is sophisticated and sterile, featuring a clean architectural perspective. The lighting is cinematic, reflecting off polished dark floors to create a sense of infinite depth and advanced enterprise security. The overall mood is authoritative and visionary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl00OkTY6npFwvAqIxFy_-YgQGbhBd-mou6HpFsmmFSPKSo8jlRP0MpgPNhzbfAPb3VfPV3UB06GmwCLVVs9gGSfYmiPkXf9u4rIItbai-A8e_ZLZ-PH3D-NlWwwIpLYyHCnCDcv7uFrb1AYPeN9DFqA4H5ygcsCv3vpmA-FKta7IyC-oKYvDIQnbVYKyDOoDMVS8Ga9jMXCsIfEvySmcn7haGh-U4GoC48Kuf2XAeY0c1ENvM_Hu2sLoXsvLMaPjt3oJ0Pi30yg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-20 bg-surface-container-low border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="text-center">
+<p class="font-display-lg text-display-lg text-tertiary">15+</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant mt-2">Years of Industry Expertise</p>
+</div>
+<div class="text-center">
+<p class="font-display-lg text-display-lg text-tertiary">15+</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant mt-2">Successful Projects Delivered</p>
+</div>
+<div class="text-center">
+<p class="font-display-lg text-display-lg text-tertiary">100+</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant mt-2">Systems Managed</p>
+</div>
+<div class="text-center">
+<p class="font-display-lg text-display-lg text-tertiary">24/7</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant mt-2">Monitoring & Support</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-16 bg-surface-dim border-t border-white/5">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<img alt="J-Tech Logo" class="w-8 h-8 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">J-Tech Dynamics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-xs">
+                    A technology company building the next generation of IT services, custom software, and SaaS solutions. Proudly built in Kisumu, Kenya.
+                </p>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Company</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../2 services_page_with_updated_nav/code.html">Expertise</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">Leadership</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Careers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Resources</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../5 blog_page_with_updated_nav/code.html">Case Studies</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Whitepapers</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Security Standards</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Support Portal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Connect</h5>
+<div class="grid gap-3 mb-8">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.facebook.com/share/1BJoCA4KYA/" aria-label="Facebook">
+<img alt="Facebook icon" class="w-6 h-6 object-contain" src="../media_2.jpg/facebook.png"/>
+<span class="font-body-sm text-body-sm">Facebook</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.instagram.com/jtech.d/" aria-label="Instagram">
+<img alt="Instagram icon" class="w-6 h-6 object-contain" src="../media_2.jpg/instagram.png"/>
+<span class="font-body-sm text-body-sm">Instagram</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.tiktok.com/@jtechdynamics" aria-label="TikTok">
+<img alt="TikTok icon" class="w-6 h-6 object-contain" src="../media_2.jpg/tiktok.png"/>
+<span class="font-body-sm text-body-sm">TikTok</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://x.com/jtech_dynamics" aria-label="X">
+<img alt="X icon" class="w-6 h-6 object-contain" src="../media_2.jpg/x-twitter.png"/>
+<span class="font-body-sm text-body-sm">X</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="http://www.youtube.com/@J-TechDynamics" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/youtube.png"/>
+<span class="font-body-sm text-body-sm">YouTube</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.linkedin.com/in/j-tech-dynamics-bb411a41b" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/LinkedIn.png"/>
+<span class="font-body-sm text-body-sm">LinkedIn</span>
+</a>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-surface-container-low">
+<p class="font-label-mono text-[10px] text-on-surface-variant mb-2">OPERATIONAL STATUS</p>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-[10px] text-on-surface uppercase tracking-tight">All Systems Operational</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant/60">
+                © 2026 J-Tech Dynamics. Innovation in Motion.
+            </p>
+
+</div>
+</div>
+</footer>
+<!-- NOC Case Study Modal -->
+<div aria-hidden="true" aria-labelledby="noc-modal-title" aria-modal="true" class="fixed inset-0 z-[60] hidden items-center justify-center bg-surface-dim/85 backdrop-blur-sm p-4" id="noc-story-modal" role="dialog">
+<div class="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl border border-white/10 bg-surface-container shadow-2xl">
+<div class="sticky top-0 flex items-center justify-between border-b border-white/10 bg-surface-container px-6 py-5 md:px-8">
+<span class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest">J-Tech Dynamics story</span>
+<button aria-label="Close article" class="rounded-lg p-2 text-on-surface-variant hover:bg-white/10 hover:text-on-surface transition-colors" data-close-noc-story type="button"><span class="material-symbols-outlined">close</span></button>
+</div>
+<article class="p-6 md:p-8">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8" id="noc-modal-title">Building Intelligent Infrastructure: Deploying a Network Operations Center for Hotel X and Office Y</h2>
+<div class="space-y-7 font-body-md text-body-md leading-relaxed text-on-surface-variant">
+<section><h3 class="font-headline-md text-headline-md text-primary mb-2">Introduction</h3><p>As Hotel X expanded its digital operations and Office Y required greater visibility into its IT infrastructure, both organizations faced increasing demands for proactive network monitoring, faster incident response, and centralized system management. They needed a solution capable of providing real-time insights into their critical technology environments.</p></section>
+<section><h3 class="font-headline-md text-headline-md text-primary mb-2">Challenge</h3><p>Managing servers, network equipment, wireless infrastructure, security appliances, and business-critical services across multiple locations had become increasingly complex. Without centralized monitoring, identifying failures often relied on user reports, leading to delayed response times, longer outages, and reduced operational efficiency.</p></section>
+<section><h3 class="font-headline-md text-headline-md text-primary mb-2">Solution</h3><p class="whitespace-pre-line">J-Tech Dynamics designed and implemented a centralized Network Operations Center (NOC) platform that provides comprehensive visibility into both environments from a single dashboard.\n\nThe deployment included:\n• Real-time monitoring of network devices, servers, and critical services.\n• Performance tracking for switches, routers, firewalls, and wireless infrastructure.\n• Automated alerts for outages, hardware failures, and performance degradation.\n• Historical reporting and trend analysis for capacity planning.\n• Centralized dashboards for rapid troubleshooting and decision-making.\n• Improved visibility into system health across Hotel X and Office Y.\n\nThe platform enables IT teams to detect and resolve issues before they impact business operations, shifting maintenance from reactive troubleshooting to proactive infrastructure management.</p></section>
+<section><h3 class="font-headline-md text-headline-md text-primary mb-2">Conclusion</h3><p>The NOC implementation provided Hotel X and Office Y with a resilient, enterprise-grade monitoring solution that improves operational reliability, reduces downtime, and strengthens IT governance. By centralizing infrastructure visibility, J-Tech Dynamics empowered both organizations to manage their technology environments more efficiently while supporting future growth and digital transformation.</p></section>
+</div>
+</article>
+</div>
+</div>
+<script>
+        // Micro-interaction for mouse glow effect
+        document.addEventListener('mousemove', (e) => {
+            const grid = document.querySelector('.interactive-grid');
+            if (grid) {
+                const rect = grid.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                grid.style.backgroundImage = `
+                    radial-gradient(circle at ${x}px ${y}px, rgba(56, 189, 248, 0.15) 0%, transparent 200px),
+                    radial-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px)
+                `;
+            }
+        });
+
+        // Initialize state
+        window.addEventListener('load', () => {
+            console.log("J-Tech Dynamics UI Initialized");
+        });
+
+        function closeNocStoryModal() {
+            const modal = document.getElementById('noc-story-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        document.addEventListener('click', (event) => {
+            const modal = document.getElementById('noc-story-modal');
+            if (event.target.closest('[data-open-noc-story]')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('overflow-hidden');
+                modal.querySelector('[data-close-noc-story]')?.focus();
+            }
+            if (event.target.closest('[data-close-noc-story]') || event.target === modal) closeNocStoryModal();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeNocStoryModal();
+        });
+    </script>
+<script src="../responsive-nav.js"></script>
+</body></html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" href="images/Favicon.png"/>
+<title>Enterprise-Grade IT Services | J-Tech Dynamics</title>
+<script defer src="js/site-paths.js"></script>
+<script defer src="js/responsive-nav.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#d4e4fa",
+                        "primary-fixed": "#d9e3f8",
+                        "on-primary-fixed": "#121c2b",
+                        "on-tertiary": "#00354a",
+                        "surface-dim": "#051424",
+                        "surface-tint": "#bdc7dc",
+                        "surface-container-low": "#0d1c2d",
+                        "on-error": "#690005",
+                        "inverse-primary": "#555f71",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-secondary-fixed": "#00174b",
+                        "background": "#051424",
+                        "on-surface-variant": "#c5c6cd",
+                        "surface-container": "#122131",
+                        "surface-variant": "#273647",
+                        "tertiary-fixed-dim": "#7bd0ff",
+                        "outline-variant": "#45474c",
+                        "on-secondary": "#002a78",
+                        "tertiary-fixed": "#c4e7ff",
+                        "on-tertiary-fixed": "#001e2c",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary": "#bdc7dc",
+                        "on-primary-container": "#737d90",
+                        "primary-fixed-dim": "#bdc7dc",
+                        "on-secondary-container": "#cdd7ff",
+                        "inverse-on-surface": "#233143",
+                        "on-background": "#d4e4fa",
+                        "on-tertiary-fixed-variant": "#004c69",
+                        "secondary": "#b4c5ff",
+                        "on-primary": "#273141",
+                        "surface-bright": "#2c3a4c",
+                        "surface-container-highest": "#273647",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#00131d",
+                        "inverse-surface": "#d4e4fa",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#0086b5",
+                        "surface-container-high": "#1c2b3c",
+                        "primary-container": "#071120",
+                        "secondary-container": "#0053db",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#051424",
+                        "surface-container-lowest": "#010f1f",
+                        "tertiary": "#7bd0ff",
+                        "outline": "#8f9097",
+                        "on-primary-fixed-variant": "#3e4758"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "label-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #051424;
+            color: #d4e4fa;
+            font-family: 'Geist', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .grid-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(56, 189, 248, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 83, 219, 0.15) 0%, transparent 70%);
+        }
+
+        .neon-glow {
+            filter: drop-shadow(0 0 8px rgba(123, 208, 255, 0.6));
+        }
+
+        .active-nav-link {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="bg-background selection:bg-tertiary selection:text-on-tertiary">
+<!-- Top Navigation Bar -->
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface-dim/70 backdrop-blur-2xl border-b border-white/5">
+<div class="flex items-center gap-3">
+<img alt="J-Tech Dynamics Logo" class="w-10 h-10 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">J-Tech Dynamics</span>
+</div>
+<div class="hidden lg:flex items-center gap-10"><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../1 home_page_final_with_active_nav_social_footer/code.html">Home</a><a class="font-body-md text-body-md text-tertiary transition-colors" href="#">Services</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../3 industries_page_with_updated_nav/code.html">Industries</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../4 Products/code.html">Products</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../5 blog_page_with_updated_nav/code.html">Blog</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About</a></div>
+<button class="bg-on-surface text-background px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-tertiary transition-all active:scale-95" onclick="window.location.href='../contact_page_with_updated_nav/code.html'">
+        Request Support
+    </button>
+</nav>
+<main class="relative pt-32 pb-24 overflow-hidden">
+<!-- Background Decorations -->
+<div class="absolute inset-0 grid-bg -z-10"></div>
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] hero-gradient -z-10"></div>
+<!-- Page Header -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-20 text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-tertiary/20 bg-tertiary/5 text-tertiary mb-6">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest">Enterprise Solutions</span>
+</div>
+<h1 class="font-display-lg text-display-lg md:text-[64px] text-on-surface leading-tight mb-6">
+                Enterprise-Grade <span class="text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-secondary">IT Services</span>
+</h1>
+<p class="max-w-2xl mx-auto font-body-lg text-body-lg text-on-surface-variant">
+                Technology should drive your business forward not hold it back. We deliver enterprise grade IT services that simplify operations, strengthen security, and provide the reliable foundation your business needs to grow with confidence.
+            </p>
+</section>
+<!-- Services Bento Grid -->
+<section class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Service Card 1: Managed IT -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4 lg:col-span-2" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-headline-md" data-icon="settings_suggest">settings_suggest</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Managed IT</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">End-to-end management of your IT environment with proactive monitoring, expert support, and continuous optimization to keep your business running efficiently and securely.</p>
+</div>
+</div>
+<!-- Service Card 2: Cybersecurity -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4 lg:col-span-2 border-primary/20 bg-primary-container/20" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-headline-md" data-icon="shield_lock" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Cybersecurity</h3>
+<span class="px-2 py-0.5 rounded bg-error/10 text-error text-[10px] font-bold uppercase tracking-tighter">Critical</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Protect your business with proactive security solutions that defend your systems, users, and data against evolving cyber threats while ensuring business continuity.</p>
+</div>
+</div>
+<!-- Service Card 3: Network Infra -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="hub">hub</span>
+<h3 class="font-body-lg font-bold text-on-surface">Network Infrastructure</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Design, deploy, and manage secure, high-performance network infrastructure that delivers reliable connectivity, scalability, and maximum uptime.</p>
+</div>
+<!-- Service Card 4: Cloud -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="cloud">cloud</span>
+<h3 class="font-body-lg font-bold text-on-surface">Cloud Solutions</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Accelerate your digital transformation with secure cloud solutions that enable seamless collaboration, scalability, and business agility.</p>
+</div>
+<!-- Service Card 5: CCTV -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="videocam">videocam</span>
+<h3 class="font-body-lg font-bold text-on-surface">CCTV &amp; Physical</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Intelligent surveillance and access control solutions that strengthen physical security through real-time monitoring and centralized management.</p>
+</div>
+<!-- Service Card 6: Server Mgmt -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="dns">dns</span>
+<h3 class="font-body-lg font-bold text-on-surface">Server Management</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Maximize server performance and reliability with proactive maintenance, monitoring, updates, and infrastructure optimization.</p>
+</div>
+<!-- Service Card 7: Disaster Recovery -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4 lg:col-span-2" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-secondary text-[40px]" data-icon="history_edu">history_edu</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Backup & Disaster Recovery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ensure business continuity with automated backup solutions and rapid disaster recovery strategies that minimize downtime and protect critical data.</p>
+</div>
+</div>
+</div>
+<!-- Service Card 8: IT Consultancy -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="architecture">architecture</span>
+<h3 class="font-body-lg font-bold text-on-surface">IT Consultancy</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Strategic technology consulting that aligns your IT investments with business goals, driving innovation, efficiency, and long-term growth.</p>
+</div>
+<!-- Service Card 9: WiFi -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="wifi">wifi</span>
+<h3 class="font-body-lg font-bold text-on-surface">Enterprise WiFi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Design and deploy secure, high-performance wireless networks that provide seamless connectivity, coverage, and scalability for modern workplaces.</p>
+</div>
+<!-- Service Card 10: Remote Monitoring -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="monitoring">monitoring</span>
+<h3 class="font-body-lg font-bold text-on-surface">Remote Monitoring</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous 24/7 monitoring of your IT infrastructure to detect, prevent, and resolve issues before they impact your business operations.</p>
+</div>
+<!-- Service Card 11: Smart Office -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="domain">domain</span>
+<h3 class="font-body-lg font-bold text-on-surface">Smart Office</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Transform your workplace with intelligent automation, IoT integration, and connected technologies that improve productivity, collaboration, and operational efficiency.</p>
+</div>
+<!-- Service Card 12: VoIP -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="voip">flip</span>
+<h3 class="font-body-lg font-bold text-on-surface">VoIP Systems</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Modern business communication solutions delivering crystal-clear voice, video, and collaboration across teams, offices, and remote work environments.</p>
+</div>
+<!-- Service Card 13: IT Audits -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="fact_check">fact_check</span>
+<h3 class="font-body-lg font-bold text-on-surface">IT Audits</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Comprehensive assessments of your IT infrastructure, security, and compliance to identify risks, improve performance, and strengthen operational resilience.</p>
+</div>
+<!-- Service Card 14: Strategic Planning -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4 lg:col-span-2 bg-gradient-to-br from-surface-container-high to-surface-container" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<div class="flex items-center justify-between">
+<div class="max-w-[70%]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Strategic IT Planning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Turn technology into a competitive advantage with strategic IT planning that optimizes infrastructure, reduces operational risk, and prepares your business for future growth.</p>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[64px] opacity-20" data-icon="rocket_launch">rocket_launch</span>
+</div>
+</div>
+<!-- Service Card 15: Microsoft 365 & Google Workspace -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="workspaces">workspaces</span>
+<h3 class="font-body-lg font-bold text-on-surface">Microsoft 365 &amp; Google Workspace</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deploy, migrate, and manage modern productivity platforms that enable secure collaboration, communication, and business continuity.</p>
+</div>
+<!-- Service Card 16: Endpoint Management -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="devices">devices</span>
+<h3 class="font-body-lg font-bold text-on-surface">Endpoint Management</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Centrally manage, secure, and maintain desktops, laptops, and mobile devices to ensure consistent performance and compliance.</p>
+</div>
+<!-- Service Card 17: Business Applications -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="apps">apps</span>
+<h3 class="font-body-lg font-bold text-on-surface">Business Applications</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deploy and support ERP, CRM, accounting, and industry-specific software that streamlines operations and improves business productivity.</p>
+</div>
+<!-- Service Card 18: Network as a Service -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<span class="material-symbols-outlined text-tertiary text-headline-md" data-icon="lan">lan</span>
+<h3 class="font-body-lg font-bold text-on-surface">Network as a Service (NaaS)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Flexible, fully managed networking solutions that provide secure, scalable, and reliable connectivity without the complexity of in-house management.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mt-32 max-w-container-max mx-auto px-margin-desktop">
+<div class="glass-card rounded-2xl overflow-hidden p-12 md:p-20 relative flex flex-col items-center text-center" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80')] opacity-5 mix-blend-overlay" data-alt="A high-tech server room with glowing blue LED lights and intricate fiber optic cables reflecting off metallic surfaces in a dark, atmospheric environment. The shot is low-angle, emphasizing the scale of the technology infrastructure. The lighting is dominated by a deep neon blue, creating a sense of advanced cybersecurity and enterprise-level power."></div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-6 relative z-10">Ready to Modernize Your Infrastructure?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10 relative z-10">
+                    Connect with our technical architects for a deep-dive consultation on your specific enterprise requirements.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 relative z-10">
+<button class="px-8 py-4 bg-secondary text-on-secondary font-bold rounded hover:bg-tertiary transition-colors shadow-lg shadow-secondary/20" onclick="window.location.href='../contact_page_with_updated_nav/code.html'">
+                        Schedule a Consultation
+                    </button>
+
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-16 bg-surface-dim border-t border-white/5">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<img alt="J-Tech Logo" class="w-8 h-8 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">J-Tech Dynamics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-xs">
+                    A technology company building the next generation of IT services, custom software, and SaaS solutions. Proudly built in Kisumu, Kenya.
+                </p>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Company</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../2 services_page_with_updated_nav/code.html">Expertise</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">Leadership</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Careers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Resources</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../5 blog_page_with_updated_nav/code.html">Case Studies</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Whitepapers</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Security Standards</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Support Portal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Connect</h5>
+<div class="grid gap-3 mb-8">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.facebook.com/share/1BJoCA4KYA/" aria-label="Facebook">
+<img alt="Facebook icon" class="w-6 h-6 object-contain" src="../media_2.jpg/facebook.png"/>
+<span class="font-body-sm text-body-sm">Facebook</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.instagram.com/jtech.d/" aria-label="Instagram">
+<img alt="Instagram icon" class="w-6 h-6 object-contain" src="../media_2.jpg/instagram.png"/>
+<span class="font-body-sm text-body-sm">Instagram</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.tiktok.com/@jtechdynamics" aria-label="TikTok">
+<img alt="TikTok icon" class="w-6 h-6 object-contain" src="../media_2.jpg/tiktok.png"/>
+<span class="font-body-sm text-body-sm">TikTok</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://x.com/jtech_dynamics" aria-label="X">
+<img alt="X icon" class="w-6 h-6 object-contain" src="../media_2.jpg/x-twitter.png"/>
+<span class="font-body-sm text-body-sm">X</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="http://www.youtube.com/@J-TechDynamics" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/youtube.png"/>
+<span class="font-body-sm text-body-sm">YouTube</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.linkedin.com/in/j-tech-dynamics-bb411a41b" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/LinkedIn.png"/>
+<span class="font-body-sm text-body-sm">LinkedIn</span>
+</a>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-surface-container-low">
+<p class="font-label-mono text-[10px] text-on-surface-variant mb-2">OPERATIONAL STATUS</p>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-[10px] text-on-surface uppercase tracking-tight">All Systems Operational</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant/60">
+                © 2026 J-Tech Dynamics. Innovation in Motion.
+            </p>
+
+</div>
+</div>
+</footer>
+<script>
+        // Subtle mouse tracking for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+                
+                // Dynamic border glow effect
+                const glowX = (x / rect.width) * 100;
+                const glowY = (y / rect.height) * 100;
+                card.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.75))`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.background = 'rgba(15, 23, 42, 0.75)';
+            });
+        });
+
+        // Smooth scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            observer.observe(card);
+        });
+    </script>
+<script src="../responsive-nav.js"></script>
+</body></html>

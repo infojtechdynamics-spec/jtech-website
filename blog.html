@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" href="images/Favicon.png"/>
+<title>Blog | J-Tech Dynamics</title>
+<script defer src="js/site-paths.js"></script>
+<script defer src="js/responsive-nav.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #051424;
+            color: #d4e4fa;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+            transform: translateY(-2px);
+        }
+        .interactive-grid {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#d4e4fa",
+                    "primary-fixed": "#d9e3f8",
+                    "on-primary-fixed": "#121c2b",
+                    "on-tertiary": "#00354a",
+                    "surface-dim": "#051424",
+                    "surface-tint": "#bdc7dc",
+                    "surface-container-low": "#0d1c2d",
+                    "on-error": "#690005",
+                    "inverse-primary": "#555f71",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#003ea8",
+                    "on-secondary-fixed": "#00174b",
+                    "background": "#051424",
+                    "on-surface-variant": "#c5c6cd",
+                    "surface-container": "#122131",
+                    "surface-variant": "#273647",
+                    "tertiary-fixed-dim": "#7bd0ff",
+                    "outline-variant": "#45474c",
+                    "on-secondary": "#002a78",
+                    "tertiary-fixed": "#c4e7ff",
+                    "on-tertiary-fixed": "#001e2c",
+                    "secondary-fixed-dim": "#b4c5ff",
+                    "primary": "#bdc7dc",
+                    "on-primary-container": "#737d90",
+                    "primary-fixed-dim": "#bdc7dc",
+                    "on-secondary-container": "#cdd7ff",
+                    "inverse-on-surface": "#233143",
+                    "on-background": "#d4e4fa",
+                    "on-tertiary-fixed-variant": "#004c69",
+                    "secondary": "#b4c5ff",
+                    "on-primary": "#273141",
+                    "surface-bright": "#2c3a4c",
+                    "surface-container-highest": "#273647",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#00131d",
+                    "inverse-surface": "#d4e4fa",
+                    "secondary-fixed": "#dbe1ff",
+                    "on-tertiary-container": "#0086b5",
+                    "surface-container-high": "#1c2b3c",
+                    "primary-container": "#071120",
+                    "secondary-container": "#0053db",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#051424",
+                    "surface-container-lowest": "#010f1f",
+                    "tertiary": "#7bd0ff",
+                    "outline": "#8f9097",
+                    "on-primary-fixed-variant": "#3e4758"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-md": ["Geist"],
+                    "label-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background selection:bg-tertiary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface-dim/70 backdrop-blur-2xl border-b border-white/5">
+<div class="flex items-center gap-3">
+<img alt="J-Tech Dynamics Logo" class="w-10 h-10 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">J-Tech Dynamics</span>
+</div>
+<div class="hidden lg:flex items-center gap-10"><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../1 home_page_final_with_active_nav_social_footer/code.html">Home</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../2 services_page_with_updated_nav/code.html">Services</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../3 industries_page_with_updated_nav/code.html">Industries</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../4 Products/code.html">Products</a><a class="font-body-md text-body-md text-tertiary transition-colors" href="#">Blog</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About</a></div>
+<button class="bg-on-surface text-background px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-tertiary transition-all active:scale-95" onclick="window.location.href='../contact_page_with_updated_nav/code.html'">
+        Request Support
+    </button>
+</nav>
+<main class="pt-32 pb-24 interactive-grid">
+<div class="max-w-[1440px] mx-auto px-margin-desktop" id="blog-app">
+<!-- Hero Featured Post -->
+<section class="mb-24">
+<div class="relative group cursor-pointer overflow-hidden rounded-xl bg-surface-container border border-white/10 flex flex-col md:flex-row h-auto md:h-[500px]">
+<div class="w-full md:w-3/5 relative overflow-hidden">
+<img alt="Featured Post" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A futuristic, high-tech server room interior with rows of blinking blue LED lights reflecting on polished black floors. The atmosphere is cinematic and moody, dominated by deep midnight blues and sharp cyan highlights. Thin laser lines of light trace geometric patterns across the equipment, suggesting advanced cybersecurity and data protection protocols in a premium enterprise environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCCNvg_kDdP6LxvH36t-DfTkRV_LQZLp0p6cM6eV8La8KQiorTFIdNehvAqJxy2P3ThHFnKRDFGGlGp-HpTNbA_dU5gNsftb6AQ8mKwn_QfDbyhgpfhOMDdg7PxKZ4T0RK2L3Z-SkJYMsy9Uv58dOZSlxNaowXyLACd-czH1t9I3SgeQerfu2aVGr-O0sTYvP9Sq_bX6JdSP5iPXbt7RNVWhbaQaHudmP8OZfwgJor0TF5gefM2H46mDIjV721UshM0KdFM-omZQ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent md:block hidden"></div>
+</div>
+<div class="w-full md:w-2/5 p-12 flex flex-col justify-center relative z-10 bg-surface-container">
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-mono text-label-mono uppercase">Featured</span>
+<span class="text-on-surface-variant font-label-mono text-label-mono">12 Min Read</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight text-on-surface">The Future of Zero Trust Architecture</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 line-clamp-3">Discover how J-Tech's latest implementation of AI-driven perimeter defense is reshaping the global cybersecurity landscape for Fortune 500 companies.</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-on-surface font-bold">Dr. Elena Vance</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant">Chief Security Architect</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Search and Filter Bar -->
+<section class="mb-16 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 rounded-full bg-tertiary text-on-tertiary font-label-mono text-label-mono transition-all">All Posts</button>
+<button class="px-6 py-2 rounded-full bg-surface-container border border-white/10 text-on-surface-variant font-label-mono text-label-mono hover:border-tertiary hover:text-tertiary transition-all">Cybersecurity</button>
+<button class="px-6 py-2 rounded-full bg-surface-container border border-white/10 text-on-surface-variant font-label-mono text-label-mono hover:border-tertiary hover:text-tertiary transition-all">Cloud Infrastructure</button>
+<button class="px-6 py-2 rounded-full bg-surface-container border border-white/10 text-on-surface-variant font-label-mono text-label-mono hover:border-tertiary hover:text-tertiary transition-all">IT Tips</button>
+<button class="px-6 py-2 rounded-full bg-surface-container border border-white/10 text-on-surface-variant font-label-mono text-label-mono hover:border-tertiary hover:text-tertiary transition-all">Case Studies</button>
+</div>
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border border-white/10 rounded-lg pl-12 pr-4 py-3 font-body-md text-body-md focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all" placeholder="Search articles..." type="text"/>
+</div>
+</section>
+<!-- Articles Bento/Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Large Card -->
+<article class="md:col-span-8 glass-card rounded-xl overflow-hidden group">
+<div class="aspect-[16/9] overflow-hidden">
+<img alt="Cloud connectivity" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A breathtaking satellite view of Earth at night with glowing blue networks of light connecting continents, representing global cloud connectivity. The image is rendered with a dark, high-contrast aesthetic featuring deep space blacks and luminous electric blue data streams. The style is sophisticated, corporate, and clean, highlighting global-scale technology infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSn1G6qlFci7bCXrBlzxY0le0QPbyom-_7TtbPdVjYRBVK3LqpQY7AWcO-5yauGNKBS1cnpo4IR6wnEOUe_wPOGs2ONxQDI1fFPDARYjIamaoQzVlSauzBYcKp7-imkh0u-2WHMNm61A68hK6rCzBuqSJymmmSnxPVOLkZVKpN-d193iwPrVfU2EO9K55aSGdQVZOSjrRdH_hZFjvKvoKGbEYrT_AAKfY6FmwQinq4joBp-3zglnAWEkqGB7HqC6GcePK0AmNkiw"/>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-4 mb-4 font-label-mono text-label-mono text-on-surface-variant">
+<span class="text-tertiary">Cloud Infrastructure</span>
+<span class="">•</span>
+<span class="">May 14, 2024</span>
+<span class="">•</span>
+<span class="">8 min read</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg mb-4 group-hover:text-tertiary transition-colors">Optimizing Multi-Cloud Environments for Latency</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Navigating the complexities of AWS, Azure, and GCP requires a unified control plane. We break down the best practices for minimizing cross-cloud packet loss.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-white/10"></div>
+<span class="font-label-mono text-label-mono">Marcus Thorne</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Sidebar Content / Smaller Cards -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<article class="glass-card rounded-xl overflow-hidden group">
+<div class="aspect-video overflow-hidden">
+<img alt="Circuit board" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract macro shot of a complex circuit board with glowing golden and cyan traces. The lighting is low-key with a shallow depth of field, focusing on the intricate pathways of a microchip. The color palette emphasizes deep navy blue and sharp metallic silver accents, reflecting precision engineering and advanced computing power in a dark, high-end tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlm32ZfvtUhkLjEW3UwsgCFNT15yo53SlFg8K8kGTGR83VgmLuVzxxAIi8QHF-XMU-UUS8dkTp0aD34wkbgZ4_Bi1gSKwuLkoM96VYUjf8aQLDYVlrEPhLFnda1PM61u7_tUTuSC4BlrBYN7ADrW1Jjnh1AdCm6WKzLZDgtLUfI2oVagrei4xQUnFuW4vrFr1j331-EBXjkd9MafyKpGZL-Yy--Vn3swYN2XQt4IfrD2nh6-OimaWwIfd_G82IYqNOUQudJAibfg"/>
+</div>
+<div class="p-6">
+<span class="text-on-tertiary-container font-label-mono text-label-mono mb-2 block uppercase tracking-widest">IT Tips</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-tertiary transition-colors">Legacy Migration without Downtime</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A 5-step checklist for upgrading your critical systems while maintaining 99.99% uptime.</p>
+</div>
+</article>
+<article class="glass-card rounded-xl overflow-hidden group">
+<div class="aspect-video overflow-hidden">
+<img alt="Modern workspace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A clean, minimalist workspace with a single high-end laptop displaying complex data charts and code. The desk is dark mahogany, the walls are dark gray, and a single designer lamp casts a soft warm glow on the silver computer. The aesthetic is extremely polished and professional, echoing a Vercel-inspired or Stripe-inspired design language for modern digital products." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWZ-oHsTd0-sF2VVXwolJh4bBpOPGJ1g04Ha2fJiKFkZiitqspqupXz86oR8CmDEO6-cYPRUMzFgBaaRtWF1O4maqAcYqVw1ecglKAJQPCK60iQtIqmTLr3CbEiq1e71wwC27F6egR633wgFjT2V4rMQufEWPhGgrjBtH4FKq5H-3WsintUx5uElY0AsLzgPO6JgpIDuuaB_wjhjJXqHdmNO0Cs91arBJfFLH9IP7kCBINjiJ1HscM1dnK1LfBNVTaSoqGkebbog"/>
+</div>
+<div class="p-6">
+<span class="text-on-tertiary-container font-label-mono text-label-mono mb-2 block uppercase tracking-widest">Culture</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-tertiary transition-colors">Remote Engineering at Scale</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">How J-Tech manages distributed teams across 14 time zones without losing velocity.</p>
+</div>
+</article>
+</div>
+<!-- Three Column Grid -->
+<article class="md:col-span-4 glass-card rounded-xl overflow-hidden group">
+<div class="p-8 h-full flex flex-col">
+<span class="px-3 py-1 w-fit rounded bg-error-container/20 text-error font-label-mono text-[10px] uppercase mb-4">Security Alert</span>
+<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-tertiary transition-colors">The Rise of Quantum-Resistant Encryption</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Why your current RSA keys might be obsolete within the next decade and how to prepare.</p>
+<div class="flex items-center gap-3 pt-6 border-t border-white/5">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">security</span>
+</div>
+<span class="font-label-mono text-label-mono">Sarah Jenkins</span>
+</div>
+</div>
+</article>
+<article class="md:col-span-4 glass-card rounded-xl overflow-hidden group">
+<div class="p-8 h-full flex flex-col">
+<span class="px-3 py-1 w-fit rounded bg-secondary-container/20 text-secondary font-label-mono text-[10px] uppercase mb-4">Deep Dive</span>
+<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-tertiary transition-colors">Optimizing Docker for Enterprise</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Reducing image size by 70% using multi-stage builds and Alpine Linux foundations.</p>
+<div class="flex items-center gap-3 pt-6 border-t border-white/5">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">terminal</span>
+</div>
+<span class="font-label-mono text-label-mono">Kevin Wu</span>
+</div>
+</div>
+</article>
+<article class="md:col-span-4 glass-card rounded-xl overflow-hidden group">
+<div class="p-8 h-full flex flex-col">
+<span class="px-3 py-1 w-fit rounded bg-tertiary-container/40 text-tertiary font-label-mono text-[10px] uppercase mb-4">Industry Insights</span>
+<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-tertiary transition-colors">2024 Tech Spending Outlook</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">An analysis of IT budget shifts from maintenance to innovation in the AI era.</p>
+<div class="flex items-center gap-3 pt-6 border-t border-white/5">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+</div>
+<span class="font-label-mono text-label-mono">James Sterling</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Newsletter CTA -->
+<section class="mt-24 p-12 rounded-xl bg-gradient-to-br from-surface-container to-surface-container-low border border-tertiary/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/10 blur-[100px] rounded-full"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-xl text-center md:text-left">
+<h2 class="font-display-lg text-display-lg mb-4 text-on-surface">Stay ahead of the curve</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Get the latest technical insights, security briefings, and cloud optimization tips delivered to your inbox every Tuesday.</p>
+</div>
+<div class="w-full md:w-auto flex flex-col sm:flex-row gap-4">
+<input class="px-6 py-4 rounded-lg bg-background border border-white/10 font-body-md text-body-md w-full sm:w-80 focus:border-tertiary focus:outline-none" placeholder="work@company.com" type="email"/>
+<button class="bg-tertiary text-on-tertiary px-8 py-4 rounded-lg font-label-mono text-label-mono font-bold hover:brightness-110 transition-all active:scale-95">Subscribe</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-16 bg-surface-dim border-t border-white/5">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<img alt="J-Tech Logo" class="w-8 h-8 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">J-Tech Dynamics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-xs">
+                    A technology company building the next generation of IT services, custom software, and SaaS solutions. Proudly built in Kisumu, Kenya.
+                </p>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Company</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../2 services_page_with_updated_nav/code.html">Expertise</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">Leadership</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Careers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Resources</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../5 blog_page_with_updated_nav/code.html">Case Studies</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Whitepapers</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Security Standards</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Support Portal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Connect</h5>
+<div class="grid gap-3 mb-8">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.facebook.com/share/1BJoCA4KYA/" aria-label="Facebook">
+<img alt="Facebook icon" class="w-6 h-6 object-contain" src="../media_2.jpg/facebook.png"/>
+<span class="font-body-sm text-body-sm">Facebook</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.instagram.com/jtech.d/" aria-label="Instagram">
+<img alt="Instagram icon" class="w-6 h-6 object-contain" src="../media_2.jpg/instagram.png"/>
+<span class="font-body-sm text-body-sm">Instagram</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.tiktok.com/@jtechdynamics" aria-label="TikTok">
+<img alt="TikTok icon" class="w-6 h-6 object-contain" src="../media_2.jpg/tiktok.png"/>
+<span class="font-body-sm text-body-sm">TikTok</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://x.com/jtech_dynamics" aria-label="X">
+<img alt="X icon" class="w-6 h-6 object-contain" src="../media_2.jpg/x-twitter.png"/>
+<span class="font-body-sm text-body-sm">X</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="http://www.youtube.com/@J-TechDynamics" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/youtube.png"/>
+<span class="font-body-sm text-body-sm">YouTube</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.linkedin.com/in/j-tech-dynamics-bb411a41b" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/LinkedIn.png"/>
+<span class="font-body-sm text-body-sm">LinkedIn</span>
+</a>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-surface-container-low">
+<p class="font-label-mono text-[10px] text-on-surface-variant mb-2">OPERATIONAL STATUS</p>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-[10px] text-on-surface uppercase tracking-tight">All Systems Operational</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant/60">
+                © 2026 J-Tech Dynamics. Innovation in Motion.
+            </p>
+
+</div>
+</div>
+</footer>
+<script>
+        const BLOG_CACHE_KEY = 'jtech_live_blog_posts_v1';
+        const BLOG_CACHE_DURATION = 2 * 60 * 60 * 1000;
+        const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80';
+        const feedSources = [
+            {
+                category: 'Cybersecurity',
+                rss: 'https://news.google.com/rss/search?q=cybersecurity%20enterprise%20when:1d&hl=en-US&gl=US&ceid=US:en'
+            },
+            {
+                category: 'Cloud Infrastructure',
+                rss: 'https://news.google.com/rss/search?q=cloud%20infrastructure%20enterprise%20when:1d&hl=en-US&gl=US&ceid=US:en'
+            },
+            {
+                category: 'Artificial Intelligence',
+                rss: 'https://news.google.com/rss/search?q=artificial%20intelligence%20business%20technology%20when:1d&hl=en-US&gl=US&ceid=US:en'
+            },
+            {
+                category: 'Fintech',
+                rss: 'https://news.google.com/rss/search?q=fintech%20cybersecurity%20digital%20payments%20when:1d&hl=en-US&gl=US&ceid=US:en'
+            }
+        ];
+
+        const fallbackPosts = [
+            {
+                title: 'Live technology feed unavailable',
+                url: 'https://news.google.com/search?q=enterprise%20technology',
+                source: 'Google News',
+                category: 'Technology',
+                publishedAt: new Date().toISOString(),
+                image: DEFAULT_IMAGE,
+                summary: 'The page could not reach the online news feeds from this browser. Open the source link to view current technology posts directly.'
+            }
+        ];
+
+        const jtechStories = [
+            {
+                title: 'Transforming Hotel Audio: How Hotel X Reduced Costs with a Custom Digital BGM Solution',
+                summary: 'Hotel X replaced an expensive legacy music service with a flexible, centrally managed digital background music platform.',
+                introduction: 'Hotel X sought to modernize its background music system while reducing the recurring costs associated with traditional commercial music distribution solutions. The existing approach relied on an expensive third-party network music system with ongoing licensing and infrastructure expenses that provided limited flexibility.',
+                challenge: 'The hotel required a reliable, centrally managed background music solution capable of serving multiple departments without compromising audio quality or operational efficiency. The existing system generated significant recurring costs, while playlist management and scalability remained limited. Hotel management wanted a solution that maintained a premium guest experience while substantially lowering operational expenses.',
+                solution: 'J-Tech Dynamics designed and deployed a centralized digital Background Music (BGM) platform tailored specifically for the hotel\'s environment. The solution utilized an on-premises media streaming server capable of delivering scheduled playlists to multiple locations across the property.\n\nKey features included:\n• Centralized music management for all hotel departments.\n• Automated playlist scheduling throughout the day.\n• High-quality continuous streaming with minimal downtime.\n• Easy content updates without replacing hardware.\n• Reduced reliance on expensive third-party music delivery systems.\n• Scalable architecture that can support future expansion.\n\nBy leveraging modern streaming technologies and existing network infrastructure, Hotel X gained complete control over its audio environment while eliminating unnecessary operational costs.',
+                conclusion: 'The project successfully replaced a costly legacy music solution with a modern, flexible, and highly reliable platform. Hotel X significantly reduced recurring expenses while improving operational efficiency and gaining complete control over its background music experience. The implementation demonstrates how strategic IT engineering can deliver measurable financial savings without sacrificing service quality.'
+            },
+            {
+                title: 'Building Intelligent Infrastructure: Deploying a Network Operations Center for Hotel X and Office Y',
+                summary: 'A centralized Network Operations Center gave Hotel X and Office Y real-time visibility and proactive control of their IT environments.',
+                introduction: 'As Hotel X expanded its digital operations and Office Y required greater visibility into its IT infrastructure, both organizations faced increasing demands for proactive network monitoring, faster incident response, and centralized system management. They needed a solution capable of providing real-time insights into their critical technology environments.',
+                challenge: 'Managing servers, network equipment, wireless infrastructure, security appliances, and business-critical services across multiple locations had become increasingly complex. Without centralized monitoring, identifying failures often relied on user reports, leading to delayed response times, longer outages, and reduced operational efficiency.',
+                solution: 'J-Tech Dynamics designed and implemented a centralized Network Operations Center (NOC) platform that provides comprehensive visibility into both environments from a single dashboard.\n\nThe deployment included:\n• Real-time monitoring of network devices, servers, and critical services.\n• Performance tracking for switches, routers, firewalls, and wireless infrastructure.\n• Automated alerts for outages, hardware failures, and performance degradation.\n• Historical reporting and trend analysis for capacity planning.\n• Centralized dashboards for rapid troubleshooting and decision-making.\n• Improved visibility into system health across Hotel X and Office Y.\n\nThe platform enables IT teams to detect and resolve issues before they impact business operations, shifting maintenance from reactive troubleshooting to proactive infrastructure management.',
+                conclusion: 'The NOC implementation provided Hotel X and Office Y with a resilient, enterprise-grade monitoring solution that improves operational reliability, reduces downtime, and strengthens IT governance. By centralizing infrastructure visibility, J-Tech Dynamics empowered both organizations to manage their technology environments more efficiently while supporting future growth and digital transformation.'
+            }
+        ];
+
+        function renderBlogShell() {
+            const app = document.getElementById('blog-app');
+            if (!app) return;
+
+            app.innerHTML = `
+                <section class="mb-16">
+                    <div class="flex flex-col gap-6 max-w-4xl">
+                        <span class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest">Live Intelligence Feed</span>
+                        <h1 class="font-display-lg text-display-lg text-on-surface leading-tight">Fresh technology posts, summarized from the internet.</h1>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Articles are pulled from online news feeds, summarized for quick scanning, and refreshed every 2 hours. Click any article to open the original post.</p>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-mono text-label-mono uppercase" id="feed-status">Loading live posts</span>
+                            <span class="text-on-surface-variant font-label-mono text-label-mono" id="feed-updated">Checking sources...</span>
+                            <button class="px-4 py-2 rounded-lg border border-white/10 text-on-surface-variant font-label-mono text-label-mono hover:border-tertiary hover:text-tertiary transition-all" id="refresh-feed" type="button">Refresh</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="flex flex-wrap gap-3" id="category-filters"></div>
+                    <div class="relative w-full md:w-96">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                        <input class="w-full bg-surface-container-lowest border border-white/10 rounded-lg pl-12 pr-4 py-3 font-body-md text-body-md focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all" id="blog-search" placeholder="Search live posts..." type="text"/>
+                    </div>
+                </section>
+
+                <section class="mb-10 glass-card rounded-xl overflow-hidden hidden" id="featured-post"></section>
+                <section class="grid grid-cols-1 md:grid-cols-12 gap-8" id="articles-grid">
+                    <div class="md:col-span-12 glass-card rounded-xl p-8 text-on-surface-variant">Fetching articles from online sources...</div>
+                </section>
+
+                <section class="mt-24" aria-labelledby="jtech-stories-heading">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+                        <div>
+                            <span class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest">J-Tech Dynamics stories</span>
+                            <h2 class="font-display-lg text-display-lg mt-3 text-on-surface" id="jtech-stories-heading">Our successes &amp; challenges</h2>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Read the stories behind our work, the challenges we meet, and the solutions we build.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        ${jtechStories.map((story, index) => `
+                            <article class="glass-card rounded-xl p-8 flex flex-col">
+                                <span class="text-tertiary font-label-mono text-label-mono uppercase tracking-widest mb-4">${index === 0 ? 'Success story' : 'Challenge story'}</span>
+                                <h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">${escapeHtml(story.title)}</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">${escapeHtml(story.summary)}</p>
+                                <button class="w-fit inline-flex items-center gap-2 text-tertiary font-label-mono text-label-mono hover:text-on-surface transition-colors" data-story-index="${index}" type="button">
+                                    Read article <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                </button>
+                            </article>
+                        `).join('')}
+                    </div>
+                </section>
+
+                <section class="mt-24 p-12 rounded-xl bg-gradient-to-br from-surface-container to-surface-container-low border border-tertiary/20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/10 blur-[100px] rounded-full"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                        <div class="max-w-xl text-center md:text-left">
+                            <h2 class="font-display-lg text-display-lg mb-4 text-on-surface">Stay ahead of the curve</h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant">This page updates itself every 2 hours with new online technology posts.</p>
+                        </div>
+                        <button class="bg-tertiary text-on-tertiary px-8 py-4 rounded-lg font-label-mono text-label-mono font-bold hover:brightness-110 transition-all active:scale-95" id="force-refresh-feed" type="button">Load Latest Now</button>
+                    </div>
+                </section>
+
+                <div aria-hidden="true" aria-labelledby="story-modal-title" class="fixed inset-0 z-[60] hidden items-center justify-center bg-background/80 backdrop-blur-sm p-4" id="story-modal" role="dialog">
+                    <div class="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl border border-white/10 bg-surface-container shadow-2xl">
+                        <div class="sticky top-0 flex items-center justify-between border-b border-white/10 bg-surface-container px-6 py-5 md:px-8">
+                            <span class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest">J-Tech Dynamics story</span>
+                            <button aria-label="Close article" class="rounded-lg p-2 text-on-surface-variant hover:bg-white/10 hover:text-on-surface transition-colors" data-close-story type="button"><span class="material-symbols-outlined">close</span></button>
+                        </div>
+                        <article class="p-6 md:p-8">
+                            <h2 class="font-display-lg text-display-lg text-on-surface mb-8" id="story-modal-title"></h2>
+                            <div class="space-y-7 font-body-md text-body-md leading-relaxed text-on-surface-variant">
+                                <section><h3 class="font-headline-md text-headline-md text-on-surface mb-2">Introduction</h3><p id="story-introduction"></p></section>
+                                <section><h3 class="font-headline-md text-headline-md text-on-surface mb-2">Challenge</h3><p id="story-challenge"></p></section>
+                                <section><h3 class="font-headline-md text-headline-md text-on-surface mb-2">Solution</h3><p class="whitespace-pre-line" id="story-solution"></p></section>
+                                <section><h3 class="font-headline-md text-headline-md text-on-surface mb-2">Conclusion</h3><p id="story-conclusion"></p></section>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            `;
+        }
+
+        function stripHtml(value) {
+            const div = document.createElement('div');
+            div.innerHTML = value || '';
+            return div.textContent.replace(/\s+/g, ' ').trim();
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function safeUrl(value, fallback = '#') {
+            try {
+                const url = new URL(value);
+                return ['http:', 'https:'].includes(url.protocol) ? url.href : fallback;
+            } catch {
+                return fallback;
+            }
+        }
+
+        function summarize(text, title) {
+            const clean = stripHtml(text || title);
+            const sentences = clean.match(/[^.!?]+[.!?]+/g) || [clean];
+            const summary = sentences.slice(0, 2).join(' ').trim();
+            if (summary.length > 220) return `${summary.slice(0, 217).trim()}...`;
+            return summary || 'Read the full post from the original publisher.';
+        }
+
+        function getSourceName(item) {
+            try {
+                return stripHtml(item.author || item.source || '').replace(/^By\s+/i, '') || new URL(item.link).hostname.replace('www.', '');
+            } catch {
+                return 'Online Source';
+            }
+        }
+
+        function normalizePost(item, category) {
+            return {
+                title: stripHtml(item.title),
+                url: safeUrl(item.link, 'https://news.google.com'),
+                source: getSourceName(item),
+                category,
+                publishedAt: item.pubDate || new Date().toISOString(),
+                image: safeUrl(item.enclosure?.link || item.thumbnail, DEFAULT_IMAGE),
+                summary: summarize(item.description || item.content, item.title)
+            };
+        }
+
+        async function fetchFeed(source) {
+            const endpoint = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}`;
+            const response = await fetch(endpoint);
+            if (!response.ok) throw new Error(`Feed failed: ${source.category}`);
+            const data = await response.json();
+            return (data.items || []).map((item) => normalizePost(item, source.category));
+        }
+
+        async function fetchLivePosts() {
+            const results = await Promise.allSettled(feedSources.map(fetchFeed));
+            const posts = results
+                .filter((result) => result.status === 'fulfilled')
+                .flatMap((result) => result.value)
+                .filter((post) => post.title && post.url)
+                .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+
+            const uniquePosts = Array.from(new Map(posts.map((post) => [post.url, post])).values());
+            return uniquePosts.slice(0, 12);
+        }
+
+        function getCachedPosts() {
+            try {
+                const cached = JSON.parse(localStorage.getItem(BLOG_CACHE_KEY));
+                if (!cached || Date.now() - cached.savedAt > BLOG_CACHE_DURATION) return null;
+                return cached;
+            } catch {
+                return null;
+            }
+        }
+
+        function savePosts(posts) {
+            localStorage.setItem(BLOG_CACHE_KEY, JSON.stringify({ savedAt: Date.now(), posts }));
+        }
+
+        function formatDate(value) {
+            return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(value));
+        }
+
+        function readTime(summary) {
+            const words = summary.split(/\s+/).filter(Boolean).length + 450;
+            return `${Math.max(2, Math.ceil(words / 220))} min read`;
+        }
+
+        function postCard(post, index) {
+            const span = index === 0 ? 'md:col-span-8' : index < 3 ? 'md:col-span-4' : 'md:col-span-4';
+            const title = escapeHtml(post.title);
+            const summary = escapeHtml(post.summary);
+            const source = escapeHtml(post.source);
+            const category = escapeHtml(post.category);
+            const href = safeUrl(post.url, 'https://news.google.com');
+            const imageUrl = safeUrl(post.image, DEFAULT_IMAGE);
+            const image = index < 3 ? `
+                <div class="aspect-video overflow-hidden">
+                    <img alt="${title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="${imageUrl}">
+                </div>
+            ` : '';
+
+            return `
+                <a class="${span} glass-card rounded-xl overflow-hidden group block" href="${href}" rel="noopener noreferrer">
+                    ${image}
+                    <div class="p-8 h-full flex flex-col">
+                        <div class="flex flex-wrap items-center gap-3 mb-4 font-label-mono text-label-mono text-on-surface-variant">
+                            <span class="text-tertiary">${category}</span>
+                            <span>&bull;</span>
+                            <span>${formatDate(post.publishedAt)}</span>
+                            <span>&bull;</span>
+                            <span>${readTime(post.summary)}</span>
+                        </div>
+                        <h2 class="${index === 0 ? 'font-headline-lg text-headline-lg' : 'font-headline-md text-headline-md'} mb-4 group-hover:text-tertiary transition-colors">${title}</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">${summary}</p>
+                        <div class="flex items-center justify-between pt-6 border-t border-white/5">
+                            <span class="font-label-mono text-label-mono">${source}</span>
+                            <span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-2 transition-transform">open_in_new</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        function renderCategories(posts, activeCategory = 'All Posts') {
+            const filters = document.getElementById('category-filters');
+            if (!filters) return;
+            const categories = ['All Posts', ...new Set(posts.map((post) => post.category))];
+            filters.innerHTML = categories.map((category) => `
+                <button class="px-6 py-2 rounded-full ${category === activeCategory ? 'bg-tertiary text-on-tertiary' : 'bg-surface-container border border-white/10 text-on-surface-variant hover:border-tertiary hover:text-tertiary'} font-label-mono text-label-mono transition-all" data-category="${escapeHtml(category)}" type="button">${escapeHtml(category)}</button>
+            `).join('');
+        }
+
+        function renderPosts(posts, activeCategory = 'All Posts', searchTerm = '') {
+            const grid = document.getElementById('articles-grid');
+            const status = document.getElementById('feed-status');
+            if (!grid) return;
+
+            const term = searchTerm.toLowerCase();
+            const visiblePosts = posts.filter((post) => {
+                const matchesCategory = activeCategory === 'All Posts' || post.category === activeCategory;
+                const matchesSearch = !term || `${post.title} ${post.summary} ${post.source}`.toLowerCase().includes(term);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (status) status.textContent = `${visiblePosts.length} live posts`;
+            grid.innerHTML = visiblePosts.length
+                ? visiblePosts.map(postCard).join('')
+                : '<div class="md:col-span-12 glass-card rounded-xl p-8 text-on-surface-variant">No matching live posts found.</div>';
+        }
+
+        function wireControls(posts) {
+            let activeCategory = 'All Posts';
+            const search = document.getElementById('blog-search');
+            renderCategories(posts, activeCategory);
+            renderPosts(posts, activeCategory, search?.value || '');
+
+            document.getElementById('category-filters')?.addEventListener('click', (event) => {
+                const button = event.target.closest('button[data-category]');
+                if (!button) return;
+                activeCategory = button.dataset.category;
+                renderCategories(posts, activeCategory);
+                renderPosts(posts, activeCategory, search?.value || '');
+            });
+
+            search?.addEventListener('input', () => renderPosts(posts, activeCategory, search.value));
+        }
+
+        async function loadBlogPosts(forceRefresh = false) {
+            renderBlogShell();
+            const updated = document.getElementById('feed-updated');
+            const cached = forceRefresh ? null : getCachedPosts();
+
+            if (cached) {
+                if (updated) updated.textContent = `Updated ${formatDate(cached.savedAt)}. Refreshes every 2 hours.`;
+                wireControls(cached.posts);
+                return;
+            }
+
+            try {
+                const posts = await fetchLivePosts();
+                const finalPosts = posts.length ? posts : fallbackPosts;
+                savePosts(finalPosts);
+                if (updated) updated.textContent = `Updated ${formatDate(Date.now())}. Next refresh in 2 hours.`;
+                wireControls(finalPosts);
+            } catch (error) {
+                if (updated) updated.textContent = 'Online feed unavailable. Showing source link fallback.';
+                wireControls(fallbackPosts);
+            }
+        }
+
+        function closeStoryModal() {
+            const modal = document.getElementById('story-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function openStoryModal(index) {
+            const story = jtechStories[index];
+            const modal = document.getElementById('story-modal');
+            if (!story || !modal) return;
+
+            document.getElementById('story-modal-title').textContent = story.title;
+            document.getElementById('story-introduction').textContent = story.introduction;
+            document.getElementById('story-challenge').textContent = story.challenge;
+            document.getElementById('story-solution').textContent = story.solution;
+            document.getElementById('story-conclusion').textContent = story.conclusion;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('overflow-hidden');
+            modal.querySelector('[data-close-story]')?.focus();
+        }
+
+        loadBlogPosts();
+        setInterval(() => loadBlogPosts(true), BLOG_CACHE_DURATION);
+        document.addEventListener('click', (event) => {
+            if (event.target.closest('#refresh-feed') || event.target.closest('#force-refresh-feed')) {
+                localStorage.removeItem(BLOG_CACHE_KEY);
+                loadBlogPosts(true);
+            }
+
+            const storyButton = event.target.closest('[data-story-index]');
+            if (storyButton) openStoryModal(Number(storyButton.dataset.storyIndex));
+
+            const modal = document.getElementById('story-modal');
+            if (event.target.closest('[data-close-story]') || event.target === modal) closeStoryModal();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeStoryModal();
+        });
+
+        // Micro-interaction: Mouse tracking spotlight effect on glass cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Only apply if cursor is relatively close to the card to save performance
+                if (x > -100 && x < rect.width + 100 && y > -100 && y < rect.height + 100) {
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                }
+            });
+        });
+    </script>
+<script src="../responsive-nav.js"></script>
+</body></html>

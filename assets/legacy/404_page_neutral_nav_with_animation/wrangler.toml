@@ -1,0 +1,6 @@
+name = "jtech-404-page"
+compatibility_date = "2026-07-29"
+pages_build_output_dir = "."
+
+[[send_email]]
+name = "EMAIL"

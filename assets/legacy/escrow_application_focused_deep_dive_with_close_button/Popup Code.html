@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" href="../media_2.jpg/Favicon.png"/>
+<title>Escrow Application - J-Tech Dynamics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist.css" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "surface-container-highest": "#273647",
+                    "primary": "#bdc7dc",
+                    "surface-container": "#122131",
+                    "primary-fixed": "#d9e3f8",
+                    "on-tertiary-fixed": "#001e2c",
+                    "on-primary-container": "#737d90",
+                    "background": "#051424",
+                    "surface-container-high": "#1c2b3c",
+                    "on-secondary-fixed": "#00174b",
+                    "on-primary-fixed": "#121c2b",
+                    "secondary-fixed": "#dbe1ff",
+                    "on-surface": "#d4e4fa",
+                    "surface": "#051424",
+                    "on-secondary-container": "#cdd7ff",
+                    "surface-container-low": "#0d1c2d",
+                    "secondary-fixed-dim": "#b4c5ff",
+                    "on-tertiary-container": "#0086b5",
+                    "on-secondary-fixed-variant": "#003ea8",
+                    "on-surface-variant": "#c5c6cd",
+                    "surface-variant": "#273647",
+                    "surface-dim": "#051424",
+                    "on-secondary": "#002a78",
+                    "on-background": "#d4e4fa",
+                    "tertiary-container": "#00131d",
+                    "tertiary": "#7bd0ff",
+                    "surface-bright": "#2c3a4c",
+                    "outline": "#8f9097",
+                    "tertiary-fixed": "#c4e7ff",
+                    "surface-container-lowest": "#010f1f",
+                    "inverse-on-surface": "#233143",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004c69",
+                    "outline-variant": "#45474c",
+                    "surface-tint": "#bdc7dc",
+                    "secondary-container": "#0053db",
+                    "on-primary": "#273141",
+                    "tertiary-fixed-dim": "#7bd0ff",
+                    "primary-container": "#071120",
+                    "inverse-primary": "#555f71",
+                    "error": "#ffb4ab",
+                    "secondary": "#b4c5ff",
+                    "primary-fixed-dim": "#bdc7dc",
+                    "on-primary-fixed-variant": "#3e4758",
+                    "inverse-surface": "#d4e4fa",
+                    "on-tertiary": "#00354a",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "gutter": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-md": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "label-mono": ["JetBrains Mono"],
+                    "headline-md": ["Geist"],
+                    "headline-lg": ["Geist"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #051424; color: #d4e4fa; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+        .step-node::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, rgba(123, 208, 255, 0.5), transparent);
+            z-index: 0;
+        }
+        .step-node:last-child::after { display: none; }
+        .grid-pattern {
+            background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: inherit;
+            background: linear-gradient(to bottom right, rgba(123, 208, 255, 0.4), transparent, rgba(123, 208, 255, 0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #051424; }
+        ::-webkit-scrollbar-thumb { background: #1c2b3c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #273647; }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Navigation -->
+<main class="relative z-10"><button aria-label="Close" class="fixed top-6 right-6 z-[100] w-12 h-12 flex items-center justify-center rounded-full glass-panel border border-white/20 text-on-surface hover:text-tertiary hover:border-tertiary/50 hover:scale-110 transition-all active:scale-95 shadow-lg group" onclick="if (window.parent && window.parent !== window && window.parent.closeModal) window.parent.closeModal();"><span class="material-symbols-outlined text-2xl">close</span></button>
+<!-- Hero Section -->
+<section class="relative w-full h-[600px] flex items-center overflow-hidden border-b border-white/10">
+<div class="absolute inset-0 z-0">
+<img alt="Escrow Infrastructure Visual" class="w-full h-full object-cover opacity-70" src="https://lh3.googleusercontent.com/aida/AP1WRLs89Cha3LvFjGWikS_HmgK9ov04nN-N2FtE3G2VXO0GA2y0rmAoxRO5ODfoDoCNjGovkPdOGB8GTKceCn2Ozfx5pbVQTjtXTd65MWOnz9ZU3PmhwhDnPpTAEl3WWyng7D3tJy8i13r9e89WDyLTC_Crs1edAiwcur7QUFxhOTf1jqaQFQBwuT43700LI9-mS88vRk6EuwrXRPePNOCkXi3xI0h_bkgrXJYmNJA0dESSazcq6hY883PngQ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop space-y-6 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary-container/40 text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-mono text-label-mono uppercase">Institutional Grade Escrow</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">Digital Trust Infrastructure for the Modern Economy</h1>
+<p class="text-tertiary font-headline-md max-w-2xl">A secure neutral layer protecting both parties through precision-engineered logic and ironclad fund holding.</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-4 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:scale-[1.02] active:scale-95 transition-all glow-cyan shadow-lg">
+                        Get Started with Escrow
+                    </button>
+<button class="px-8 py-4 border border-outline text-on-surface font-bold rounded-lg hover:bg-white/5 transition-all">
+                        View Documentation
+                    </button>
+</div>
+</div>
+</section>
+<!-- Introduction & Why It Matters -->
+<section class="py-24 px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-20 items-start bg-gradient-to-b from-background to-surface-container-lowest">
+<div class="space-y-8">
+<div class="space-y-4">
+<h2 class="font-headline-lg text-primary">Overview</h2>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                        Our Escrow Application acts as a <span class="text-tertiary font-medium">digital trust infrastructure</span>, serving as a secure neutral layer in any exchange. It ensures that financial commitments and service delivery obligations are perfectly synchronized, moving funds only when all conditions are met.
+                    </p>
+</div>
+<div class="glass-panel p-8 rounded-xl bg-surface-container-high/40 gradient-border">
+<h3 class="font-headline-md text-primary mb-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">security</span>
+                        Why It Matters
+                    </h3>
+<p class="text-on-surface-variant text-body-lg">
+                        In an increasingly decentralized global economy, trust is the scarcest resource. Our solution bridges the <span class="text-on-surface font-medium">'trust gap'</span> by drastically reducing transaction uncertainty—virtually eliminating fraud and failed deliveries. We provide the ironclad guarantee needed for enterprises to engage in complex transactions with total confidence.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="p-8 border border-white/5 bg-white/5 rounded-xl space-y-4">
+<div class="w-12 h-12 rounded bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">trending_down</span>
+</div>
+<h4 class="font-headline-md text-on-surface">Reduce Fraud Risk</h4>
+<p class="text-on-surface-variant">Prevent unauthorized fund movement and ensure both parties adhere to agreed-upon terms before settlement.</p>
+</div>
+<div class="p-8 border border-white/5 bg-white/5 rounded-xl space-y-4">
+<div class="w-12 h-12 rounded bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">handshake</span>
+</div>
+<h4 class="font-headline-md text-on-surface">Bridge the Trust Gap</h4>
+<p class="text-on-surface-variant">Enable new business relationships between parties who haven't yet established a history of collaboration.</p>
+</div>
+</div>
+</section>
+<!-- How It Works (Timeline) -->
+<section class="py-24 bg-surface-container-low border-y border-white/10">
+<div class="px-margin-desktop">
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+<h2 class="font-headline-lg text-primary">The Escrow Lifecycle</h2>
+<p class="text-on-surface-variant">A synchronized 6-step flow designed for absolute transparency and security.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-y-12 gap-x-4 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center space-y-6 relative step-node">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-tertiary flex items-center justify-center font-label-mono text-xl text-tertiary z-10 shadow-[0_0_15px_rgba(123,208,255,0.3)]">01</div>
+<div>
+<h5 class="font-bold text-on-surface text-lg">Initiation</h5>
+<p class="text-sm text-on-surface-variant mt-2 max-w-[160px] mx-auto">Buyer initiates transaction and defines conditions.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center space-y-6 relative step-node">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-tertiary flex items-center justify-center font-label-mono text-xl text-tertiary z-10 shadow-[0_0_15px_rgba(123,208,255,0.3)]">02</div>
+<div>
+<h5 class="font-bold text-on-surface text-lg">Secure Hold</h5>
+<p class="text-sm text-on-surface-variant mt-2 max-w-[160px] mx-auto">Funds are held in a secure multi-sig vault.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center space-y-6 relative step-node">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-tertiary flex items-center justify-center font-label-mono text-xl text-tertiary z-10 shadow-[0_0_15px_rgba(123,208,255,0.3)]">03</div>
+<div>
+<h5 class="font-bold text-on-surface text-lg">Delivery</h5>
+<p class="text-sm text-on-surface-variant mt-2 max-w-[160px] mx-auto">Seller delivers product or provides service.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center text-center space-y-6 relative step-node">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-tertiary flex items-center justify-center font-label-mono text-xl text-tertiary z-10 shadow-[0_0_15px_rgba(123,208,255,0.3)]">04</div>
+<div>
+<h5 class="font-bold text-on-surface text-lg">Validation</h5>
+<p class="text-sm text-on-surface-variant mt-2 max-w-[160px] mx-auto">Buyer confirms delivery or completion criteria.</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex flex-col items-center text-center space-y-6 relative step-node">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-tertiary flex items-center justify-center font-label-mono text-xl text-tertiary z-10 shadow-[0_0_15px_rgba(123,208,255,0.3)]">05</div>
+<div>
+<h5 class="font-bold text-on-surface text-lg">Release</h5>
+<p class="text-sm text-on-surface-variant mt-2 max-w-[160px] mx-auto">Funds are automatically released to the seller.</p>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="flex flex-col items-center text-center space-y-6 relative step-node">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-tertiary flex items-center justify-center font-label-mono text-xl text-tertiary z-10 shadow-[0_0_15px_rgba(123,208,255,0.3)]">06</div>
+<div>
+<h5 class="font-bold text-on-surface text-lg">Resolution</h5>
+<p class="text-sm text-on-surface-variant mt-2 max-w-[160px] mx-auto">Dispute resolution workflows for any discrepancies.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Capabilities Grid -->
+<section class="py-24 px-margin-desktop">
+<div class="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
+<div class="max-w-2xl space-y-4">
+<h2 class="font-headline-lg text-primary">Core Platform Capabilities</h2>
+<p class="text-on-surface-variant text-body-lg">Enterprise-grade features engineered for high-volume, high-value transaction management.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-outline text-on-surface rounded-lg hover:bg-white/5 transition-all text-sm font-bold">Download Spec Sheet</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- 1 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">account_balance_wallet</span>
+<h4 class="font-bold text-on-surface mb-2">Secure Fund Holding</h4>
+<p class="text-body-sm text-on-surface-variant">Encrypted multi-sig vaulting for absolute transactional integrity and asset protection.</p>
+</div>
+<!-- 2 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">link</span>
+<h4 class="font-bold text-on-surface mb-2">Delivery-Linked Settlement</h4>
+<p class="text-body-sm text-on-surface-variant">Workflows that tie fund release directly to delivery or service milestone verification.</p>
+</div>
+<!-- 3 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">admin_panel_settings</span>
+<h4 class="font-bold text-on-surface mb-2">Buyer &amp; Seller Protection</h4>
+<p class="text-body-sm text-on-surface-variant">Symmetrical safety protocols that safeguard the interests of both parties simultaneously.</p>
+</div>
+<!-- 4 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">monitoring</span>
+<h4 class="font-bold text-on-surface mb-2">Real-time Monitoring</h4>
+<p class="text-body-sm text-on-surface-variant">End-to-end telemetry and status tracking for every transaction in the pipeline.</p>
+</div>
+<!-- 5 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">precision_manufacturing</span>
+<h4 class="font-bold text-on-surface mb-2">Automated Settlement</h4>
+<p class="text-body-sm text-on-surface-variant">Logic-driven funds release that eliminates manual overhead and human error.</p>
+</div>
+<!-- 6 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">gavel</span>
+<h4 class="font-bold text-on-surface mb-2">Dispute Management</h4>
+<p class="text-body-sm text-on-surface-variant">Integrated resolution workflows to handle disagreements fairly and efficiently.</p>
+</div>
+<!-- 7 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">security_update_good</span>
+<h4 class="font-bold text-on-surface mb-2">Fraud Risk Reduction</h4>
+<p class="text-body-sm text-on-surface-variant">Advanced pattern detection and verification steps to minimize malicious activity.</p>
+</div>
+<!-- 8 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">rule</span>
+<h4 class="font-bold text-on-surface mb-2">Multi-stage Approvals</h4>
+<p class="text-body-sm text-on-surface-variant">Configurable approval hierarchies for complex enterprise procurement needs.</p>
+</div>
+<!-- 9 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">draw</span>
+<h4 class="font-bold text-on-surface mb-2">Digital Confirmation</h4>
+<p class="text-body-sm text-on-surface-variant">Cryptographically signed confirmation steps for immutable proof of acceptance.</p>
+</div>
+<!-- 10 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">history_edu</span>
+<h4 class="font-bold text-on-surface mb-2">Audit-Ready Records</h4>
+<p class="text-body-sm text-on-surface-variant">Comprehensive transaction logs and documentation for compliance and auditing.</p>
+</div>
+<!-- 11 -->
+<div class="p-6 glass-panel rounded-xl hover:border-tertiary/50 transition-all group">
+<span class="material-symbols-outlined text-tertiary mb-4 block text-3xl group-hover:scale-110 transition-transform">cycle</span>
+<h4 class="font-bold text-on-surface mb-2">Lifecycle Management</h4>
+<p class="text-body-sm text-on-surface-variant">End-to-end management from transaction initiation to final archiving.</p>
+</div>
+</div>
+</section>
+<!-- Enterprise Value & Experience -->
+<section class="py-24 bg-surface-container-highest/20">
+<div class="px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-5 space-y-12">
+<div class="space-y-4">
+<h2 class="font-headline-lg text-primary">Enterprise Context</h2>
+<p class="text-on-surface-variant text-body-lg">Designed to scale across diverse industries and complex transaction types.</p>
+</div>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 shrink-0 rounded bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface text-lg">E-commerce &amp; Marketplaces</h4>
+<p class="text-on-surface-variant text-sm">Foster trust between unknown buyers and sellers on global platforms.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 shrink-0 rounded bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface text-lg">B2B Procurement</h4>
+<p class="text-on-surface-variant text-sm">Manage high-value supply chain payments with delivery-contingent release.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 shrink-0 rounded bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface text-lg">Cross-border Transactions</h4>
+<p class="text-on-surface-variant text-sm">Simplify international trade by eliminating the risks of distance and jurisdiction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="glass-panel p-12 rounded-2xl relative overflow-hidden gradient-border">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-tertiary/10 blur-[100px] rounded-full"></div>
+<div class="relative z-10 space-y-8">
+<h3 class="font-headline-lg text-on-surface">The Experience Shift</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-6">
+<div class="text-on-surface-variant line-through opacity-50">
+<p class="text-label-mono uppercase tracking-widest mb-1">Old Mindset</p>
+<p class="text-headline-md italic">"Can I trust this party?"</p>
+</div>
+<span class="material-symbols-outlined text-tertiary text-4xl">arrow_forward</span>
+<div>
+<p class="text-tertiary text-label-mono uppercase tracking-widest mb-1">New Reality</p>
+<p class="text-headline-md font-bold text-primary">"How quickly can we complete this securely?"</p>
+</div>
+</div>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                                    By automating trust through code and secure holding, we remove the friction of skepticism. Business moves faster when security is a fundamental part of the architecture, not an afterthought.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA / Closing -->
+<section class="py-32 px-margin-desktop text-center bg-gradient-to-t from-surface-container-lowest to-transparent border-t border-white/5 relative overflow-hidden">
+<div class="absolute inset-0 grid-pattern opacity-30"></div>
+<div class="relative z-10 max-w-3xl mx-auto space-y-10">
+<div class="w-20 h-20 mx-auto bg-tertiary/20 rounded-full flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-5xl text-tertiary" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div class="space-y-4">
+<h2 class="font-display-lg text-on-surface">Redefining Digital Trust</h2>
+<p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">Deploy the gold standard of transaction security in minutes. Join the leading enterprises already securing their future.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="px-10 py-5 bg-tertiary text-on-tertiary font-bold rounded-lg hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_30px_rgba(123,208,255,0.3)]">
+                        Request Enterprise Demo
+                    </button>
+<button class="px-10 py-5 border border-outline text-on-surface font-bold rounded-lg hover:bg-white/5 transition-all">
+                        Contact Sales
+                    </button>
+</div>
+<p class="text-tertiary font-medium italic text-lg pt-12">
+                    "The Escrow Application is not just facilitating payments — it is redefining digital trust."
+                </p>
+</div>
+</section>
+<!-- Footer -->
+</main>
+<!-- Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-tertiary to-transparent opacity-50 z-[100]"></div>
+<script>
+        // Simple micro-interaction for scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (!header) return;
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'bg-surface-container/95');
+                header.classList.remove('py-4', 'bg-surface-container/80');
+            } else {
+                header.classList.add('py-4', 'bg-surface-container/80');
+                header.classList.remove('py-2', 'bg-surface-container/95');
+            }
+        });
+
+        // Add glow effect on mouse move over glass cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" href="images/Favicon.png">
+<title>About Us | J-Tech Dynamics</title>
+<script defer src="js/site-paths.js"></script>
+<script defer src="js/responsive-nav.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #051424;
+            color: #d4e4fa;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+            transform: translateY(-4px);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(123, 208, 255, 0.3);
+        }
+        .timeline-line {
+            background: linear-gradient(180deg, transparent 0%, #bdc7dc 20%, #bdc7dc 80%, transparent 100%);
+        }
+        .bg-grid {
+            background-image: radial-gradient(rgba(189, 199, 220, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#d4e4fa",
+                        "primary-fixed": "#d9e3f8",
+                        "on-primary-fixed": "#121c2b",
+                        "on-tertiary": "#00354a",
+                        "surface-dim": "#051424",
+                        "surface-tint": "#bdc7dc",
+                        "surface-container-low": "#0d1c2d",
+                        "on-error": "#690005",
+                        "inverse-primary": "#555f71",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-secondary-fixed": "#00174b",
+                        "background": "#051424",
+                        "on-surface-variant": "#c5c6cd",
+                        "surface-container": "#122131",
+                        "surface-variant": "#273647",
+                        "tertiary-fixed-dim": "#7bd0ff",
+                        "outline-variant": "#45474c",
+                        "on-secondary": "#002a78",
+                        "tertiary-fixed": "#c4e7ff",
+                        "on-tertiary-fixed": "#001e2c",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary": "#bdc7dc",
+                        "on-primary-container": "#737d90",
+                        "primary-fixed-dim": "#bdc7dc",
+                        "on-secondary-container": "#cdd7ff",
+                        "inverse-on-surface": "#233143",
+                        "on-background": "#d4e4fa",
+                        "on-tertiary-fixed-variant": "#004c69",
+                        "secondary": "#b4c5ff",
+                        "on-primary": "#273141",
+                        "surface-bright": "#2c3a4c",
+                        "surface-container-highest": "#273647",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#00131d",
+                        "inverse-surface": "#d4e4fa",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#0086b5",
+                        "surface-container-high": "#1c2b3c",
+                        "primary-container": "#071120",
+                        "secondary-container": "#0053db",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#051424",
+                        "surface-container-lowest": "#010f1f",
+                        "tertiary": "#7bd0ff",
+                        "outline": "#8f9097",
+                        "on-primary-fixed-variant": "#3e4758"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "label-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface selection:bg-tertiary selection:text-tertiary-container">
+<!-- TopNavBar Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface-dim/70 backdrop-blur-2xl border-b border-white/5">
+<div class="flex items-center gap-3">
+<img alt="J-Tech Dynamics Logo" class="w-10 h-10 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">J-Tech Dynamics</span>
+</div>
+<div class="hidden lg:flex items-center gap-10"><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../1 home_page_final_with_active_nav_social_footer/code.html">Home</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../2 services_page_with_updated_nav/code.html">Services</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../3 industries_page_with_updated_nav/code.html">Industries</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../4 Products/code.html">Products</a><a class="font-body-md text-body-md text-on-surface/70 hover:text-on-surface transition-colors" href="../5 blog_page_with_updated_nav/code.html">Blog</a><a class="font-body-md text-body-md text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About</a></div>
+<button class="bg-on-surface text-background px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-tertiary transition-all active:scale-95" onclick="window.location.href='../contact_page_with_updated_nav/code.html'">
+        Request Support
+    </button>
+</nav>
+<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop bg-grid">
+<!-- Hero Section: Our Story -->
+<section class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center mb-32">
+<div class="space-y-6">
+<span class="font-label-mono text-label-mono text-tertiary tracking-widest uppercase">Our Story</span>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">Remote-First. <br><span class="text-primary">African-Global.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Headquartered in Kisumu, Kenya, JTech Dynamics was born from a vision to bridge the gap between high-end enterprise infrastructure and the dynamic needs of modern businesses. We operate as a borderless entity, providing precision-engineered IT support to clients worldwide.
+                </p>
+<div class="flex items-center gap-4 pt-4">
+<div class="h-[1px] w-12 bg-outline"></div>
+<span class="font-label-mono text-label-mono text-outline">Established 2025 | Kisumu HQ</span>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-2 bg-gradient-to-tr from-tertiary/20 to-secondary/20 rounded-xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+<div class="relative glass-card aspect-video rounded-xl overflow-hidden" style="--mouse-x: 258px; --mouse-y: 312.4772491455078px;">
+<img class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700" data-alt="A cinematic, low-angle interior shot of a high-tech corporate office space in Kisumu, featuring sleek glass walls, minimalist furniture, and a panoramic view of the city under a twilight sky. The lighting is cool and atmospheric, with subtle neon blue highlights reflecting off polished surfaces. The mood is sophisticated and future-oriented, emphasizing architectural precision and digital maturity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2aQ_zgDDNgUSSWcZFK9ZjcI8AKcLc0wgX89bx8L7BKtSt2DUyAj0euFKzKWjBT3ZGFwpNkXYKHwAImGwH15kYq7321gwD2GYmytlzMecJQWkoeY91PoKYDQ5DsI5I7sVvBtuXKSvPgaXMWbiUNJxKli6xFUSCIheGZAJpCk9nZwZRb0hUhqcGGJZdH4YH7BWQK36G_khxlVpJrWpWSI_Yobk3KnX_dcTWZb8hFOa5tN8QZ8692ozjrGHRPGQEdA3IMlk5Z9NstA">
+</div>
+</div>
+</section>
+<!-- Mission & Vision -->
+<section class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter mb-32">
+<div class="glass-card p-10 space-y-4" style="--mouse-x: 292px; --mouse-y: 265.79656982421875px;">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="rocket_launch">rocket_launch</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Mission</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    To deliver enterprise-grade IT support and infrastructure solutions that empower organizations to focus on their core business, leveraging remote expertise and cutting-edge automation.
+                </p>
+</div>
+<div class="glass-card p-10 space-y-4 border-l-4 border-l-tertiary" style="--mouse-x: 16px; --mouse-y: 41px;">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="visibility">visibility</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Vision</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    To become the most trusted remote IT solutions provider across Africa, setting the global gold standard for reliability, precision engineering, and technical innovation in motion.
+                </p>
+</div>
+</section>
+<!-- Core Values: D-Y-N-A-M-I-C Section -->
+<section class="max-w-container-max mx-auto mb-32">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-display-lg text-on-surface">Our <span class="text-primary">DYNAMIC</span> Core DNA</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">The pillars of excellence that define our service architecture.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- D - Dependability -->
+<div class="glass-card p-8 flex flex-col justify-between" style="--mouse-x: 51px; --mouse-y: 126px;">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary mb-4 block text-2xl font-bold">D</span>
+<h3 class="font-headline-md text-headline-md mb-2">Dependability</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reliable, responsive, and consistent IT support businesses can trust 24/7.</p>
+</div>
+<span class="material-symbols-outlined text-outline/30 text-5xl self-end mt-8" data-icon="verified_user">verified_user</span>
+</div>
+<!-- Y - Your Success First -->
+<div class="glass-card p-8 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary mb-4 block text-2xl font-bold">Y</span>
+<h3 class="font-headline-md text-headline-md mb-2">Your Success First</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We prioritize our clients’ goals by delivering tailored technology solutions that drive growth and efficiency.</p>
+</div>
+<span class="material-symbols-outlined text-outline/30 text-5xl self-end mt-8" data-icon="ads_click">ads_click</span>
+</div>
+<!-- N - Next-Level Innovation -->
+<div class="glass-card p-8 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary mb-4 block text-2xl font-bold">N</span>
+<h3 class="font-headline-md text-headline-md mb-2">Next-Level Innovation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We embrace emerging technologies including AI, automation, cloud computing, and IoT to keep businesses ahead.</p>
+</div>
+<span class="material-symbols-outlined text-outline/30 text-5xl self-end mt-8" data-icon="dynamic_form">dynamic_form</span>
+</div>
+<!-- A - Accountability -->
+<div class="glass-card p-8 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary mb-4 block text-2xl font-bold">A</span>
+<h3 class="font-headline-md text-headline-md mb-2">Accountability</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We operate with integrity, transparency, and ownership in every project and solution we deliver.</p>
+</div>
+<span class="material-symbols-outlined text-outline/30 text-5xl self-end mt-8" data-icon="gavel">gavel</span>
+</div>
+<!-- M - Modern Simplicity -->
+<div class="glass-card p-8 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary mb-4 block text-2xl font-bold">M</span>
+<h3 class="font-headline-md text-headline-md mb-2">Modern Simplicity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We simplify complex technology into practical, efficient, and easy-to-use solutions.</p>
+</div>
+<span class="material-symbols-outlined text-outline/30 text-5xl self-end mt-8" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<!-- I - Impact-Driven -->
+<div class="glass-card p-8 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary mb-4 block text-2xl font-bold">I</span>
+<h3 class="font-headline-md text-headline-md mb-2">Impact-Driven</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We focus on measurable results that improve operations, security, productivity, and business performance.</p>
+</div>
+<span class="material-symbols-outlined text-outline/30 text-5xl self-end mt-8" data-icon="speed">speed</span>
+</div>
+<!-- C - Continuous Growth (Spanning bottom on large) -->
+<div class="glass-card p-8 flex flex-col justify-between lg:col-span-3 bg-gradient-to-r from-surface-container to-surface-dim">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary mb-4 block text-2xl font-bold">C</span>
+<h3 class="font-headline-md text-headline-md mb-2">Continuous Growth</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">We are committed to learning, innovation, improvement, and evolving with the ever-changing technology landscape.</p>
+</div>
+<span class="material-symbols-outlined text-tertiary/40 text-6xl self-end mt-4" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</section>
+<!-- Founders Section -->
+<section class="max-w-container-max mx-auto mb-32">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<span class="font-label-mono text-label-mono text-tertiary tracking-widest uppercase">Leadership</span>
+<h2 class="font-display-lg text-display-lg text-on-surface">The Architects</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Driven by a passion for technical excellence and Pan-African innovation.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Founder 1 -->
+<div class="group">
+<div class="relative mx-auto mb-6 w-1/2 overflow-hidden rounded-full border-2 border-tertiary/50 aspect-square">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="A professional portrait of a tech executive, Job Emmert Odhiambo, in a dark navy blue suit with a subtle pattern. He is positioned against a background of blurred architectural lines and cool blue lighting that matches an enterprise tech aesthetic. The lighting is sharp, highlighting confidence and visionary focus. The overall atmosphere is modern, authoritative, and clean." src="Job.jpg"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-surface-dim to-transparent">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Job Emmert Odhiambo</h3>
+<p class="font-label-mono text-label-mono text-tertiary uppercase">Co-Founder &amp; CEO</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify">
+                        As Co-Founder and Chief Executive Officer of J-Tech Dynamics, Job provides the strategic leadership that drives the company's vision for modern managed IT services. With extensive expertise in enterprise infrastructure, systems architecture, cybersecurity, and digital transformation, he leads the design of secure, scalable, and resilient technology solutions that empower organizations to operate with confidence. His commitment to engineering excellence, innovation, and long-term client partnerships ensures that every solution delivered by J-Tech Dynamics is built to meet today's operational demands while preparing businesses for tomorrow's opportunities.
+                    </p>
+</div>
+<!-- Founder 2 -->
+<div class="group">
+<div class="relative mx-auto mb-6 w-1/2 overflow-hidden rounded-full border-2 border-tertiary/50 aspect-square">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="A professional studio portrait of James Ochieng Oyoo, a tech leader with an approachable yet serious expression. He is wearing a dark charcoal turtleneck sweater, set against a deep midnight blue backdrop with faint data-inspired light streaks. The lighting is sophisticated and directional, creating a premium corporate feel. The mood is intellectual and grounded in technical mastery." src="James.jpg">
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-surface-dim to-transparent">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">James Ochieng Oyoo</h3>
+<p class="font-label-mono text-label-mono text-tertiary uppercase">Co-Founder &amp; Executive Director</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify">
+                       As Co-Founder and Executive Director of J-Tech Dynamics, James contributes to the company's technical and operational success by combining IT expertise with strong client relationship management. He supports solution planning, project implementation,
+                        and service delivery, ensuring that every deployment meets customer expectations and business objectives. His collaborative approach, attention to detail, and commitment to continuous improvement help J-Tech Dynamics deliver dependable technology
+                         solutions while building trusted, long-term partnerships with clients.</p>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="max-w-container-max mx-auto mb-32 relative">
+<div class="text-center mb-24">
+<h2 class="font-display-lg text-display-lg text-on-surface">Our Trajectory</h2>
+<div class="h-1 w-24 bg-tertiary mx-auto mt-4"></div>
+</div>
+<div class="relative">
+<!-- Center Line -->
+<div class="absolute left-1/2 -translate-x-1/2 h-full w-[1px] timeline-line hidden md:block"></div>
+<!-- Timeline Items -->
+<div class="space-y-24">
+<!-- Event 1 -->
+<div class="relative flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 md:text-right">
+<div class="glass-card p-6 inline-block">
+<span class="font-label-mono text-label-mono text-tertiary">2024</span>
+<h4 class="font-headline-md text-headline-md mt-2">The Idea</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">The vision for J-Tech Dynamics was born from a shared goal of making enterprise-grade IT services more accessible to businesses across Kenya.</p>
+</div>
+</div>
+<div class="w-4 h-4 rounded-full bg-primary border-4 border-surface-dim z-10 hidden md:block"></div>
+<div class="flex-1"></div>
+</div>
+<!-- Event 2 -->
+<div class="relative flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1"></div>
+<div class="w-4 h-4 rounded-full bg-primary border-4 border-surface-dim z-10 hidden md:block"></div>
+<div class="flex-1 md:text-left">
+<div class="glass-card p-6 inline-block">
+<span class="font-label-mono text-label-mono text-tertiary">2025</span>
+<h4 class="font-headline-md text-headline-md mt-2">Company Formation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">J-Tech Dynamics was established in Kisumu with a focus on managed IT services, cybersecurity, cloud solutions, and digital transformation.</p>
+</div>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="relative flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 md:text-right">
+<div class="glass-card p-6 inline-block">
+<span class="font-label-mono text-label-mono text-tertiary">2026</span>
+<h4 class="font-headline-md text-headline-md mt-2">Building the Foundation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Developed our service portfolio, operational processes, and technology stack to deliver reliable, scalable IT solutions from day one.</p>
+</div>
+</div>
+<div class="w-4 h-4 rounded-full bg-primary border-4 border-surface-dim z-10 hidden md:block"></div>
+<div class="flex-1"></div>
+</div>
+<!-- Event 4 -->
+<div class="relative flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1"></div>
+<div class="w-4 h-4 rounded-full bg-tertiary border-4 border-surface-dim animate-pulse z-10 hidden md:block"></div>
+<div class="flex-1 md:text-left">
+<div class="glass-card p-6 inline-block border-tertiary/30 shadow-lg shadow-tertiary/5">
+<span class="font-label-mono text-label-mono text-tertiary">Present</span>
+<h4 class="font-headline-md text-headline-md mt-2">Shaping What's Next</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Continuing to build secure technology solutions, managed services, and innovative software that help organizations adapt, grow, and succeed in a rapidly evolving digital world.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-16 bg-surface-dim border-t border-white/5">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<img alt="J-Tech Logo" class="w-8 h-8 object-contain" src="../media_2.jpg/screen.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">J-Tech Dynamics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-xs">
+                    A technology company building the next generation of IT services, custom software, and SaaS solutions. Proudly built in Kisumu, Kenya.
+                </p>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Company</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../2 services_page_with_updated_nav/code.html">Expertise</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../6 about_page_d_y_n_a_m_i_c_core_dna/code.html">Leadership</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Careers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Resources</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../5 blog_page_with_updated_nav/code.html">Case Studies</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Whitepapers</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Security Standards</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-tertiary transition-colors" href="../404_page_neutral_nav_with_animation/code.html">Support Portal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-on-surface mb-8 uppercase tracking-widest">Connect</h5>
+<div class="grid gap-3 mb-8">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.facebook.com/share/1BJoCA4KYA/" aria-label="Facebook">
+<img alt="Facebook icon" class="w-6 h-6 object-contain" src="../media_2.jpg/facebook.png"/>
+<span class="font-body-sm text-body-sm">Facebook</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.instagram.com/jtech.d/" aria-label="Instagram">
+<img alt="Instagram icon" class="w-6 h-6 object-contain" src="../media_2.jpg/instagram.png"/>
+<span class="font-body-sm text-body-sm">Instagram</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.tiktok.com/@jtechdynamics" aria-label="TikTok">
+<img alt="TikTok icon" class="w-6 h-6 object-contain" src="../media_2.jpg/tiktok.png"/>
+<span class="font-body-sm text-body-sm">TikTok</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://x.com/jtech_dynamics" aria-label="X">
+<img alt="X icon" class="w-6 h-6 object-contain" src="../media_2.jpg/x-twitter.png"/>
+<span class="font-body-sm text-body-sm">X</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="http://www.youtube.com/@J-TechDynamics" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/youtube.png"/>
+<span class="font-body-sm text-body-sm">YouTube</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-all transform hover:-translate-y-1" href="https://www.linkedin.com/in/j-tech-dynamics-bb411a41b" aria-label="YouTube">
+<img alt="YouTube icon" class="w-6 h-6 object-contain" src="../media_2.jpg/LinkedIn.png"/>
+<span class="font-body-sm text-body-sm">LinkedIn</span>
+</a>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-surface-container-low">
+<p class="font-label-mono text-[10px] text-on-surface-variant mb-2">OPERATIONAL STATUS</p>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-[10px] text-on-surface uppercase tracking-tight">All Systems Operational</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant/60">
+                © 2026 J-Tech Dynamics. Innovation in Motion.
+            </p>
+
+</div>
+</div>
+</footer>
+<script>
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+
+
+<script src="../responsive-nav.js"></script>
+</body></html>
